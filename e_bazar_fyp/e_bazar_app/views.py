@@ -9,8 +9,7 @@ def index(request):
 
 class User_vw:
 
-    def signin(self):
-        pass
+
     @csrf_exempt
     def register(self,request):
 
