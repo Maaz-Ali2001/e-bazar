@@ -7,6 +7,9 @@ from .models import *
 def index(request):
     return render(request,'User_registration.html')
 
+def signin():
+    pass
+
 class User_vw:
 
 
