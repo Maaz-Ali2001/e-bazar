@@ -1,8 +1,8 @@
 from django.urls import path
-from . import views
+from .views import vendorRegister
 
-user= views.User_vw()
+vendor= vendorRegister()
 urlpatterns = [
-    path('', views.index, name="index"),
-    path('register',user.register,name="register")
+    path('', vendor.logIn, name="logIn"),
+    path('register',vendor.register,name="register")
 ]
