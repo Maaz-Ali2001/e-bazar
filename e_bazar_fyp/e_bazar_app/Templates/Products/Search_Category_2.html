@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <!-- CSS CUSTOM -->
+  <link rel="stylesheet" href="{% static 'E-Bazar/simple.css' %}">
+    <meta charset="UTF-8">
+    <title>Select Category</title>
+</head>
+<body>
+<div class="div_class">
+<h1>
+  Select a Product Caregory
+</h1>
+<div>
+    <label for="Category">Search Category</label><br>
+    <input type="text" id="Category" name="Category">
+  <button type="submit" class="registerbtn"> Search </button>
+     <button type="submit" class="registerbtn" onclick="location.href='{% url 'selectcategory' %}'"> Show All </button>
+  </div>
+    <div>
+        {% for subcat in subcats %}
+            <a href="{% url 'selectleafcategory' subcat.name %}">{{subcat.name}}</a><br><br>
+        {% endfor %}
+
+
+
+    </div>
+
+
+</div>
+
+</body>
+</html>
