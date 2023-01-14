@@ -1,0 +1,14 @@
+from pymongo import MongoClient
+from bson.objectid import ObjectId
+from django.conf import settings
+
+
+connection_string= "mongodb+srv://fypecommerce:maazali786@cluster0.ycmix0k.mongodb.net/test"
+client = MongoClient(connection_string)
+database = client["E-Bazar"]
+dbConnection= database["Categories"]
+cats=dbConnection.find({'parent':'/Electronics'})
+Dict={'Electronics': [{'_id': ObjectId('63bef2c6a4dc95cce5c15278'), 'name': 'Embedded', 'parent': '/Electronics', 'category': '/Electronics/embedded'}, {'_id': ObjectId('63c19e2f2058d531d127084e'), 'name': 'Audio', 'parent': '/Electronics', 'category': '/Electronics/Audio'}, {'_id': ObjectId('63c19e2f2058d531d127084f'), 'name': 'Arcade Equipment', 'parent': '/Electronics', 'category': '/Electronics/Arcade Equipment'}, {'_id': ObjectId('63c19e2f2058d531d1270850'), 'name': 'Circuit Boards & Components', 'parent': '/Electronics', 'category': '/Electronics/Circuit Boards & Components'}, {'_id': ObjectId('63c19e2f2058d531d1270851'), 'name': 'Communications', 'parent': '/Electronics', 'category': '/Electronics/Communications'}, {'_id': ObjectId('63c19e2f2058d531d1270852'), 'name': 'Computers', 'parent': '/Electronics', 'category': '/Electronics/Computers'}, {'_id': ObjectId('63c19e2f2058d531d1270853'), 'name': 'Electronics Accessories', 'parent': '/Electronics', 'category': '/Electronics/Electronics Accessories'}, {'_id': ObjectId('63c19e2f2058d531d127085b'), 'name': 'Capacitors', 'parent': '/Electronics', 'category': '/Electronics/Arcade Equipment/Capacitors'}], 'Groceries & Pets': [{'_id': ObjectId('63c1a003a667623fa63b7ce3'), 'name': 'Beverages', 'parent': '/Groceries & Pets', 'category': '/Groceries & Pets/Beverages'}], 'Health & Beauty': [{'_id': ObjectId('63c1a003a667623fa63b7ce5'), 'name': 'Fragrances', 'parent': '/Health & Beauty', 'category': '/Health & Beauty/Fragrances'}, {'_id': ObjectId('63c1a003a667623fa63b7ce6'), 'name': 'Men Fragrances', 'parent': '/Health & Beauty', 'category': '/Health & Beauty/Men Fragrances'}], "Men's Fashion": [{'_id': ObjectId('63c1a003a667623fa63b7ce7'), 'name': 'Sneakers', 'parent': "/Men's Fashion", 'category': "/Men's Fashion/Sneakers"}], "Women's Fashion": [{'_id': ObjectId('63c1a003a667623fa63b7ce8'), 'name': 'Muslim Wear', 'parent': "/Women's Fashion", 'category': "/Women's Fashion/Muslim Wear"}], 'Mother & Baby': [], 'Home & Lifestyle': [], 'Electronic Accessories': [], 'TV & Hone Appliances': [], 'Sports & Outdoors': [], 'Watches, Bags & Jewellery': [], 'Automotive & Motorbikes': []}
+reg=dbConnection.find({'parent' : {'$regex' : 'Circuit Boards & Components$'}})
+for i in reg:
+    print(i)
