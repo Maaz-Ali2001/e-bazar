@@ -20,13 +20,10 @@
   </div>
     <div>
         {% for subcat in subcats %}
-            <a href="{% url 'selectleafcategory' subcat.name %}">{{subcat.name}}</a><br><br>
+            <a href="{% url 'leafcat' subcat.name %}">{{subcat.name}}</a><br><br>
         {% endfor %}
-
-
-
     </div>
-
+    <p>2</p>
 
 </div>
 

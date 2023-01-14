@@ -110,7 +110,6 @@ class Category:
 
 class Product:
     category=Category()
-    subparent=None
     def __init__(self):
         self.context={}
 
@@ -137,7 +136,6 @@ class Product:
 
         return render(request,"Products/Search_Category_1.html",self.context)
     def selectSubCat(self,request,parent):
-        self.subparent=parent
         print(2)
         sub_categories=self.category.fetchChild(request,"/" + parent)
         self.context['subcats']=sub_categories
