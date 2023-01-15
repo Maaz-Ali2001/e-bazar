@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3a7640e6-de76-46e0-ab66-b76b957a1143" name="Changes" comment="Mongo integrated and registration done">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/fyp-ebazar.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/e_bazar_fyp/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/e_bazar_app/Templates/Products/Add_Products.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/e_bazar_app/Templates/Products/Search_Category.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/e_bazar_app/Templates/Products/Search_Category_1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/e_bazar_app/Templates/Products/Search_Category_2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/e_bazar_app/Templates/Products/Search_Category_3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/e_bazar_app/Templates/User_registration.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/e_bazar_app/Templates/Vendor_registration/Registration.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/e_bazar_app/Templates/Vendor_registration/Registration2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/e_bazar_app/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/e_bazar_app/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/e_bazar_app/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/e_bazar_app/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/e_bazar_app/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/e_bazar_app/static/E-Bazar/simple.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/e_bazar_app/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/e_bazar_app/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/e_bazar_app/utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/e_bazar_app/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/e_bazar_fyp/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/e_bazar_fyp/e_bazar_fyp/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/e_bazar_fyp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/e_bazar_fyp/e_bazar_fyp/urls.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2K0Hq0v0tBdldXxevD9KB9SXgVQ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/maaz_/Desktop/fyp-ebazar",
+    "settings.editor.selected.configurable": "project.propVCSSupport.Mappings"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\maaz_\Desktop\fyp-ebazar\e_bazar_fyp\e_bazar_app" />
+      <recent name="C:\Users\maaz_\Desktop\fyp-ebazar\e_bazar_fyp\e_bazar_app\Templates\Vendor_registration" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3a7640e6-de76-46e0-ab66-b76b957a1143" name="Changes" comment="" />
+      <created>1673104766235</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1673104766235</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Mongo integrated and registration done">
+      <created>1673472401663</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1673472401663</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Mongo integrated and registration done" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mongo integrated and registration done" />
+  </component>
+</project>

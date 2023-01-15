@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  {% load static %}
+    <!-- CSS CUSTOM -->
+  <link rel="stylesheet" href="{% static 'E-Bazar/simple.css' %}">
+    <meta charset="UTF-8">
+    <title>Add a Product</title>
+</head>
+
+<body>
+
+
+<br>
+<br>
+<br>
+<h1>
+  E-Bazar seller central Add Product
+</h1>
+<div>
+  <form action="{% url 'register' %}" method="post">
+    {% csrf_token %}
+    <fieldset>
+      <legend>
+    <h2>
+
+  </h2>
+      </legend>
+  <div>
+    <label for="businessType">Enter business type</label><br>
+    <input type="text" id="businessType" name="businessType"><br><br>
+  </div>
+
+    <div>
+    <label for="firstName">First Name</label><br>
+    <input type="text" id="firstName" name="firstName"><br><br>
+  </div>
+
+      <div>
+    <label for="middleName">Middle Name</label><br>
+    <input type="text" id="middleName" name="middleName"><br><br>
+  </div>
+
+      <div>
+    <label for="lastName">Last Name</label><br>
+    <input type="text" id="lastName" name="lastName"><br><br>
+  </div>
+
+
+
+       <div>
+    <label for="dto">Date of birth</label><br>
+    <input type="text" id="dto" name="dto"><br><br>
+  </div>
+
+
+       <div>
+    <label for="city">City</label><br>
+    <input type="text" id="city" name="city"><br><br>
+  </div>
+
+
+      <div>
+    <label for="province">Province</label><br>
+    <input type="text" id="province" name="province"><br><br>
+  </div>
+
+
+         <div>
+    <label for="address1">Address line 1</label><br>
+    <input type="text" id="address1" name="address1"><br><br>
+  </div>
+
+            <div>
+    <label for="address2">Address line 2</label><br>
+    <input type="text" id="address2" name="address2"><br><br>
+  </div>
+
+         <div>
+    <label for="postalCode">Postal code</label><br>
+    <input type="text" id="postalCode" name="postalCode"><br><br>
+  </div>
+
+         <div>
+    <label for="cnic">Cnic no</label><br>
+    <input type="text" id="cnic" name="cnic"><br><br>
+  </div>
+
+
+         <div>
+    <label for="phone">Phone no</label><br>
+    <input type="text" id="phone" name="phone"><br><br>
+  </div>
+
+
+
+    <div>
+    <label for="email">Email</label><br>
+    <input type="text" id="email" name="email"><br><br>
+  </div>
+
+
+       <div>
+    <label for="password">Password</label><br>
+    <input type="password" id="password" name="password"><br><br>
+  </div>
+
+     <div>
+    <label for="rePassword">Re-type password</label><br>
+    <input type="password" id="rePassword" name="rePassword"><br><br>
+  </div>
+
+
+        <div>
+    <label for="creditCard">Credit card number</label><br>
+    <input type="text" id="creditCard" name="creditCard"><br><br>
+  </div>
+
+
+            <div>
+    <label for="cardHolder">Card Holder Name</label><br>
+    <input type="text" id="cardHolder" name="cardHolder"><br><br>
+  </div>
+
+            <div>
+    <label for="billingAddress">Billing Address</label><br>
+    <input type="text" id="billingAddress" name="billingAddress"><br><br>
+  </div>
+
+
+
+    </fieldset>
+            {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+        <button type="submit" class="registerbtn"> Next </button>
+  </form>
+</div>
+</body>
+</html>
