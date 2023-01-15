@@ -8,8 +8,7 @@ urlpatterns = [
     path('login/', vendor.logIn, name="logIn"),
     path('register/',vendor.register,name="register"),
     path('addproduct/',product.renselectCat,name="addproduct"),
-    path('selectcategory/',product.selectCat,name="selectcategory"),
-    path('<str:parent>/',product.selectSubCat,name="selectsubcategory"),
-    path('<str:subparent>/',product.selectLeafCat,name="leafcat")
-
+    path('selectcategory1/',product.selectCat,name="selectcategory"),
+    path('selectcategory2/',product.selectSubCat,name="selectsubcategory"),
+    path('selectcategory3/',product.selectLeafCat,name="leafcat")
 ]

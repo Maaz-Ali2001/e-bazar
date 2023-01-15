@@ -20,7 +20,11 @@
   </div>
     <div>
         {% for subcat in subcats %}
-            <a href="{% url 'leafcat' subcat.name %}">{{subcat.name}}</a><br><br>
+        <form action='{% url "leafcat" %}' method="POST">
+             {% csrf_token %}
+      <button name="category" type="submit" value="{{subcat.category}}">{{subcat.name}}</button>
+    </form>
+        <br><br>
         {% endfor %}
     </div>
     <p>2</p>

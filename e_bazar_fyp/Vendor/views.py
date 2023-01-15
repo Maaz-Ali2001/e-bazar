@@ -135,14 +135,16 @@ class Product:
 
 
         return render(request,"Products/Search_Category_1.html",self.context)
-    def selectSubCat(self,request,parent):
+    def selectSubCat(self,request):
+        category= request.POST['category']
         print(2)
-        sub_categories=self.category.fetchChild(request,"/" + parent)
+        sub_categories=self.category.fetchChild(request,category)
         self.context['subcats']=sub_categories
         return render(request,"Products/Search_Category_2.html",self.context)
 
-    def selectLeafCat(self,request,subparent):
-        leaf_categories=self.category.fetchChild(request,'/' + subparent)
+    def selectLeafCat(self,request):
+        category = request.POST['category']
+        leaf_categories=self.category.fetchChild(request,category)
         print(3)
         self.context['leafcats']=leaf_categories
         return render(request,"Products/Search_Category_3.html",self.context)

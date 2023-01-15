@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     {% load static %}
     <!-- CSS CUSTOM -->
@@ -20,7 +20,13 @@
   </div>
     <div>
         {% for maincat in maincats %}
-            <a href="{% url 'selectsubcategory' maincat.name %}">{{maincat.name}}</a><br><br>
+
+
+        <form action='{% url "selectsubcategory" %}' method="POST">
+             {% csrf_token %}
+      <button name="category" type="submit" value="{{maincat.category}}">{{maincat.name}}</button>
+    </form>
+        <br><br>
         {% endfor %}
     </div>
     <p>1</p>
