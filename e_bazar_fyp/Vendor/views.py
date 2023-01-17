@@ -112,6 +112,7 @@ class Product:
     category=Category()
     def __init__(self):
         self.context={}
+        self.product_category=None
 
     # def storeContext(self,name,value):
     #     self.context[name]=value
@@ -148,6 +149,18 @@ class Product:
         print(3)
         self.context['leafcats']=leaf_categories
         return render(request,"Products/Search_Category_3.html",self.context)
+
+    def renAddProduct(self,request):
+        self.product_category=request.POST['category']
+        context={
+            "category" : self.product_category
+        }
+        return render(request, "Products/Add_Products.html",context)
+
+    def addProduct(self,request):
+        pass
+
+
 
 
 

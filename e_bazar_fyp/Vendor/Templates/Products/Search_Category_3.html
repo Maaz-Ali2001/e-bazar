@@ -18,12 +18,15 @@
   <button type="submit" class="registerbtn"> Search </button>
      <button type="submit" class="registerbtn" onclick="location.href='{% url 'selectcategory' %}'"> Show All </button>
   </div>
+    <br><br>
     <div>
         {% for leafcat in leafcats %}
-            <a>{{leafcat.name}}</a><br><br>
+            <form action='{% url "addpro" %}' method="POST">
+             {% csrf_token %}
+            <button name="category" type="submit" value="{{leafcat.category}}">{{leafcat.name}}</button>
+            </form>
+            <br><br>
         {% endfor %}
-        <p>3</p>
-
 
     </div>
 
