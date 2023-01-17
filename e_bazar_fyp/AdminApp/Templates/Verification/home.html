@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'simple.css' %}">
+    <meta charset="UTF-8">
+    <title>Vendor register</title>
+</head>
+
+<body>
+
+
+<br>
+<br>
+<br>
+<h1>
+  Unregistered vendors
+</h1>
+<div>
+
+  <div>
+              <form action='{% url "home" %}' method="POST">
+                        {% block content %}
+                        {% for key,value in vendors.items %}
+                      <label >Vendor</label><br><br>
+             {% csrf_token %}
+                  {% for stat in status %}
+                  {% load html_func %}
+                  {% get_id value as vend_id %}
+                  {% status_venid stat vend_id as dict %}
+      <button name="status" type="submit" value="{{dict}}" >{{stat}}</button>
+                  {% endfor %}
+
+
+        <fieldset>
+
+    {% for k,v in value.items %}
+            {% if k != "_id" %}
+
+    <label >{{k}}</label><br>
+    <label >{{v}}</label><br><br>
+            {% endif %}
+  {% endfor %}
+        </fieldset>
+
+    <br>
+    <br>
+     {% endfor %}
+{% endblock %}
+                  </form>
+    </div>
+
+
+</div>
+
+</body>
+</html>
