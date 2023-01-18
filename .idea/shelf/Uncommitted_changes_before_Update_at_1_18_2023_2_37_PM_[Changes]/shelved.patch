@@ -1,0 +1,97 @@
+Index: e_bazar_fyp/Vendor/Templates/Products/Search_Category_3.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    {% load static %}\r\n    <!-- CSS CUSTOM -->\r\n  <link rel=\"stylesheet\" href=\"{% static 'E-Bazar/simple.css' %}\">\r\n    <meta charset=\"UTF-8\">\r\n    <title>Select Category</title>\r\n</head>\r\n<body>\r\n<div class=\"div_class\">\r\n<h1>\r\n  Select a Product Caregory\r\n</h1>\r\n<div>\r\n    <label for=\"Category\">Search Category</label><br>\r\n    <input type=\"text\" id=\"Category\" name=\"Category\">\r\n  <button type=\"submit\" class=\"registerbtn\"> Search </button>\r\n     <button type=\"submit\" class=\"registerbtn\" onclick=\"location.href='{% url 'selectcategory' %}'\"> Show All </button>\r\n  </div>\r\n    <div>\r\n        {% for leafcat in leafcats %}\r\n            <a>{{leafcat.name}}</a><br><br>\r\n        {% endfor %}\r\n        <p>3</p>\r\n\r\n\r\n    </div>\r\n\r\n\r\n</div>\r\n\r\n</body>\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/e_bazar_fyp/Vendor/Templates/Products/Search_Category_3.html b/e_bazar_fyp/Vendor/Templates/Products/Search_Category_3.html
+--- a/e_bazar_fyp/Vendor/Templates/Products/Search_Category_3.html	(revision 316ac5f902e4a7a11a14593c7a1e82aab93b4897)
++++ b/e_bazar_fyp/Vendor/Templates/Products/Search_Category_3.html	(date 1673863265061)
+@@ -20,7 +20,7 @@
+   </div>
+     <div>
+         {% for leafcat in leafcats %}
+-            <a>{{leafcat.name}}</a><br><br>
++        <a>{{leafcat.name}}</a><button type="submit">select</button><br><br>
+         {% endfor %}
+         <p>3</p>
+ 
+Index: e_bazar_fyp/Vendor/views.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from django.shortcuts import render,redirect\r\nfrom django.http import HttpResponse,Http404,HttpResponseRedirect\r\nfrom django.views.decorators.csrf import csrf_exempt\r\nfrom pymongo import MongoClient\r\nfrom bson.objectid import ObjectId\r\n\r\nfrom . import utils\r\n\r\n\r\n\r\n# class User_vw:\r\n#\r\n#\r\n#     @csrf_exempt\r\n#     def register(self,request):\r\n#\r\n#         user_mdl=User(user_Name=request.POST.get('user_name'),user_Password = request.POST.get('password'),user_email_phone = request.POST.get('Mob_or_Eml'))\r\n#\r\n#         user_mdl.save()\r\n#         print(request.POST.get('username'))\r\n#         return HttpResponse(request.POST.get('user_name'))\r\n#     # def post(self,request):\r\n#     #     user_creation=self.register(request)\r\n#     #     return user_creation\r\n\r\nclass vendorRegister:\r\n    def __init__(self):\r\n        pass\r\n\r\n    def logIn(self,request):\r\n\r\n        return redirect(\"register\")\r\n\r\n    def register(self,request):\r\n        if request.method == 'POST':\r\n            firstName = request.POST['firstName']\r\n            middleName = request.POST['middleName']\r\n            lastName = request.POST['lastName']\r\n            businessType = request.POST['businessType']\r\n            dto = request.POST['dto']\r\n            city = request.POST['city']\r\n            province = request.POST['province']\r\n            address1 = request.POST['address1']\r\n            address2 = request.POST['address2']\r\n            postalCode = request.POST['postalCode']\r\n            cnic = int(request.POST['cnic'])\r\n            phone = request.POST['phone']\r\n            email = request.POST['email']\r\n            password = request.POST['password']\r\n            rePassword = request.POST['rePassword']\r\n            creditCard = request.POST['creditCard']\r\n            cardHolder = request.POST['cardHolder']\r\n            billingAddress = request.POST['billingAddress']\r\n\r\n            db= utils.connect_database(\"vendor1\")\r\n            cnicCheckCount= db.find({\"cnic\":cnic}).count()\r\n\r\n\r\n            if cnicCheckCount==0:\r\n                vendor= {\r\n                    \"firstName\":firstName,\r\n                    \"middleName\":middleName,\r\n                    \"lastName\":lastName,\r\n                    \"businessType\":businessType,\r\n                    \"dto\":dto,\r\n                    \"city\":city,\r\n                    \"province\":province,\r\n                    \"address1\":address1,\r\n                    \"address2\": address2,\r\n                    \"postalCode\":postalCode,\r\n                    \"cnic\":cnic,\r\n                    \"email\": email,\r\n                    \"password\":password,\r\n                    \"phone\":phone,\r\n                    \"creditCard\":creditCard,\r\n                    \"cardHolder\":cardHolder,\r\n                    \"billingAddress\":billingAddress,\r\n                }\r\n\r\n                db.insert_one(vendor)\r\n            else:\r\n                return render(request, 'Vendor_registration/Registration.html', {\r\n                    'error_message': \"Maybe you are already registered or entered incorrect information !\",\r\n                })\r\n\r\n        return render(request, 'Vendor_registration/Registration.html')\r\nclass Category:\r\n    connection_string = \"mongodb+srv://fypecommerce:maazali786@cluster0.ycmix0k.mongodb.net/test\"\r\n    client = MongoClient(connection_string)\r\n    database = client[\"E-Bazar\"]\r\n    dbConnection = database[\"Categories\"]\r\n    def __init__(self):\r\n        pass\r\n\r\n    def fetchAll(self,request):\r\n        categories=self.dbConnection.find({\"parent\":\"/\"})\r\n        categoriesList=[]\r\n        for i in categories:\r\n            categoriesList.append(i)\r\n        return categoriesList\r\n    def fetchChild(self,request,parent):\r\n        subcategories = self.dbConnection.find({\"parent\": parent})\r\n        subcategoriesList = []\r\n        for i in subcategories:\r\n            subcategoriesList.append(i)\r\n        return subcategoriesList\r\n\r\n\r\n    # def fetchSubCat(self,request):\r\n\r\nclass Product:\r\n    category=Category()\r\n    def __init__(self):\r\n        self.context={}\r\n\r\n    # def storeContext(self,name,value):\r\n    #     self.context[name]=value\r\n\r\n    def renselectCat(self,request):\r\n        return render(request, \"Products/Search_Category.html\")\r\n    def selectCat(self,request):\r\n        main_categories=self.category.fetchAll(request)\r\n        print(1)\r\n        # sub_categories=[]\r\n        # leaf_categories=[]\r\n        #\r\n        # for i in main_categories:\r\n        #     j=self.category.fetchChild(request,\"/\" + i[\"name\"])\r\n        #     sub_categories.append([i[\"name\"],j])\r\n        #     for k in j:\r\n        #         leaf=self.category.fetchChild(request,\"/\" + i[\"name\"] + \"/\" + k[\"name\"])\r\n        #         leaf_categories.append([k[\"name\"],leaf])\r\n\r\n        self.context['maincats']=main_categories\r\n\r\n\r\n        return render(request,\"Products/Search_Category_1.html\",self.context)\r\n    def selectSubCat(self,request):\r\n        category= request.POST['category']\r\n        print(2)\r\n        sub_categories=self.category.fetchChild(request,category)\r\n        self.context['subcats']=sub_categories\r\n        return render(request,\"Products/Search_Category_2.html\",self.context)\r\n\r\n    def selectLeafCat(self,request):\r\n        category = request.POST['category']\r\n        leaf_categories=self.category.fetchChild(request,category)\r\n        print(3)\r\n        self.context['leafcats']=leaf_categories\r\n        return render(request,\"Products/Search_Category_3.html\",self.context)\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/e_bazar_fyp/Vendor/views.py b/e_bazar_fyp/Vendor/views.py
+--- a/e_bazar_fyp/Vendor/views.py	(revision 316ac5f902e4a7a11a14593c7a1e82aab93b4897)
++++ b/e_bazar_fyp/Vendor/views.py	(date 1673863380790)
+@@ -112,6 +112,7 @@
+     category=Category()
+     def __init__(self):
+         self.context={}
++        self.selected_cat=None
+ 
+     # def storeContext(self,name,value):
+     #     self.context[name]=value
+@@ -148,6 +149,9 @@
+         print(3)
+         self.context['leafcats']=leaf_categories
+         return render(request,"Products/Search_Category_3.html",self.context)
++    def renAddProduct(self,request):
++        render(request,)
++
+ 
+ 
+ 
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"3a7640e6-de76-46e0-ab66-b76b957a1143\" name=\"Changes\" comment=\"change app name to vendor\">\r\n      <change afterPath=\"$PROJECT_DIR$/e_bazar_fyp/AdminApp/urls.py\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/e_bazar_fyp/Vendor/Templates/Products/Search_Category_1.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/e_bazar_fyp/Vendor/Templates/Products/Search_Category_1.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/e_bazar_fyp/Vendor/urls.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/e_bazar_fyp/Vendor/urls.py\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/e_bazar_fyp/Vendor/views.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/e_bazar_fyp/Vendor/views.py\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/e_bazar_fyp/e_bazar_fyp/urls.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/e_bazar_fyp/e_bazar_fyp/urls.py\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Python Script\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2K0Hq0v0tBdldXxevD9KB9SXgVQ\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"last_opened_file_path\": \"C:/Users/maaz_/Desktop/fyp/E_Bazar\",\r\n    \"settings.editor.selected.configurable\": \"project.propVCSSupport.Mappings\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\maaz_\\Desktop\\fyp-ebazar\\e_bazar_fyp\\e_bazar_app\" />\r\n      <recent name=\"C:\\Users\\maaz_\\Desktop\\fyp-ebazar\\e_bazar_fyp\\e_bazar_app\\Templates\\Vendor_registration\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"3a7640e6-de76-46e0-ab66-b76b957a1143\" name=\"Changes\" comment=\"\" />\r\n      <created>1673104766235</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1673104766235</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Mongo integrated and registration done\">\r\n      <created>1673472401663</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1673472401663</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"change app name to vendor\">\r\n      <created>1673773110822</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1673773110822</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"change app name to vendor\">\r\n      <created>1673773176958</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1673773176958</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"4\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Mongo integrated and registration done\" />\r\n    <MESSAGE value=\"change app name to vendor\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"change app name to vendor\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 316ac5f902e4a7a11a14593c7a1e82aab93b4897)
++++ b/.idea/workspace.xml	(date 1673863381349)
+@@ -1,13 +1,13 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
++  <component name="AutoImportSettings">
++    <option name="autoReloadType" value="SELECTIVE" />
++  </component>
+   <component name="ChangeListManager">
+     <list default="true" id="3a7640e6-de76-46e0-ab66-b76b957a1143" name="Changes" comment="change app name to vendor">
+-      <change afterPath="$PROJECT_DIR$/e_bazar_fyp/AdminApp/urls.py" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/Vendor/Templates/Products/Search_Category_1.html" beforeDir="false" afterPath="$PROJECT_DIR$/e_bazar_fyp/Vendor/Templates/Products/Search_Category_1.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/Vendor/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/e_bazar_fyp/Vendor/urls.py" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/Vendor/Templates/Products/Search_Category_3.html" beforeDir="false" afterPath="$PROJECT_DIR$/e_bazar_fyp/Vendor/Templates/Products/Search_Category_3.html" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/e_bazar_fyp/Vendor/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/e_bazar_fyp/Vendor/views.py" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/e_bazar_fyp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/e_bazar_fyp/e_bazar_fyp/urls.py" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -33,14 +33,14 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "RunOnceActivity.OpenProjectViewOnStart": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "last_opened_file_path": "C:/Users/maaz_/Desktop/fyp/E_Bazar",
+-    "settings.editor.selected.configurable": "project.propVCSSupport.Mappings"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;last_opened_file_path&quot;: &quot;C:/Users/maaz_/Desktop/fyp/E_Bazar&quot;,
++    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.Mappings&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
+       <recent name="C:\Users\maaz_\Desktop\fyp-ebazar\e_bazar_fyp\e_bazar_app" />
