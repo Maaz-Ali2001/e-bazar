@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3a7640e6-de76-46e0-ab66-b76b957a1143" name="Changes" comment="category done">
-      <change afterPath="$PROJECT_DIR$/check2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/e_bazar_fyp/AdminApp/templatetags/html_func.py" afterDir="false" />
+    <list default="true" id="3a7640e6-de76-46e0-ab66-b76b957a1143" name="Changes" comment="Add_product">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/check.py" beforeDir="false" afterPath="$PROJECT_DIR$/check.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/AdminApp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/e_bazar_fyp/AdminApp/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/AdminApp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/e_bazar_fyp/AdminApp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/Vendor/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/e_bazar_fyp/Vendor/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/Vendor/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/e_bazar_fyp/Vendor/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/e_bazar_fyp/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/e_bazar_fyp/e_bazar_fyp/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/e_bazar_fyp/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/e_bazar_fyp/e_bazar_fyp/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,15 +29,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/maaz_/Desktop/fyp-ebazar",
-    "settings.editor.selected.configurable": "project.propVCSSupport.Mappings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/maaz_/Desktop/fyp-ebazar&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.Mappings&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\maaz_\Desktop\fyp-ebazar\e_bazar_fyp\e_bazar_app" />
