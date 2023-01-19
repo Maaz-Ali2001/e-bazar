@@ -11,5 +11,6 @@ urlpatterns = [
     path('selectcategory1/',product.selectCat,name="selectcategory"),
     path('selectcategory2/',product.selectSubCat,name="selectsubcategory"),
     path('selectcategory3/',product.selectLeafCat,name="leafcat"),
-    path('addpro/',product.renAddProduct,name="addpro")
+    path('addpro/',product.renAddProduct,name="addpro"),
+    path('insertpro/',product.addProduct,name='insertpro')
 ]
