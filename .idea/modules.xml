@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/e-bazar-saim.iml" filepath="$PROJECT_DIR$/.idea/e-bazar-saim.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/fyp-ebazar.iml" filepath="$PROJECT_DIR$/.idea/fyp-ebazar.iml" />
     </modules>
   </component>
 </project>
