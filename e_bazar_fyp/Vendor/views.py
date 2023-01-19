@@ -3,11 +3,10 @@ from django.http import HttpResponse,Http404,HttpResponseRedirect
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
 from pymongo import MongoClient
+import hashlib
 from bson.objectid import ObjectId
 
 from . import utils
-
-
 
 # class User_vw:
 #
@@ -47,38 +46,59 @@ class vendorRegister:
             cnic = int(request.POST['cnic'])
             phone = request.POST['phone']
             email = request.POST['email']
+            email=email.strip()
             password = request.POST['password']
+            password= password.strip()
             rePassword = request.POST['rePassword']
             creditCard = request.POST['creditCard']
             cardHolder = request.POST['cardHolder']
             billingAddress = request.POST['billingAddress']
 
-            db= utils.connect_database("vendor1")
-            cnicCheckCount= db.find({"cnic":cnic}).count()
+            emailpass= email+password
+            #vendor_databse_name = hashlib.sha256(emailpass.encode('utf-8')).hexdigest()
+            vendor_databse_name= 'vendor'+str(cnic)
 
+            database_genvendor= utils.connect_database("E-Bazar")
+            db_status= database_genvendor["status"]
+            not_verified= db_status.find({"name":"not verified"})
+            for i in not_verified:
+                not_verified= ObjectId(i["_id"])
+            db_genvendor= database_genvendor["vendor2"]
+            database_specvendor= utils.connect_database(vendor_databse_name)
+            db_info = database_specvendor["Information"]
+            db_products= database_specvendor["Products"]
+            cnicCheckCount= db_genvendor.find({"cnic":cnic}).count()
 
             if cnicCheckCount==0:
-                vendor= {
-                    "firstName":firstName,
-                    "middleName":middleName,
-                    "lastName":lastName,
-                    "businessType":businessType,
-                    "dto":dto,
-                    "city":city,
-                    "province":province,
-                    "address1":address1,
-                    "address2": address2,
-                    "postalCode":postalCode,
-                    "cnic":cnic,
+                vendor_login= {
                     "email": email,
                     "password":password,
                     "phone":phone,
-                    "creditCard":creditCard,
-                    "cardHolder":cardHolder,
-                    "billingAddress":billingAddress,
+                    'status':not_verified,
+                    'database_name':vendor_databse_name }
+                vendor_info={
+                    "firstName": firstName,
+                    "middleName": middleName,
+                    "lastName": lastName,
+                    "businessType": businessType,
+                    "dto": dto,
+                    "city": city,
+                    "province": province,
+                    "address1": address1,
+                    "address2": address2,
+                    "postalCode": postalCode,
+                    "cnic": cnic,
+                    "creditCard": creditCard,
+                    "cardHolder": cardHolder,
+                    "billingAddress": billingAddress,
                 }
+                print(vendor_info)
+                print(vendor_login)
+                #db_genvendor.insert_one()
+                db_genvendor.insert_one(vendor_login)
+                db_info.insert_one(vendor_info)
 
-                db.insert_one(vendor)
+                return redirect("register")
             else:
                 return render(request, 'Vendor_registration/Registration.html', {
                     'error_message': "Maybe you are already registered or entered incorrect information !",
@@ -122,7 +142,6 @@ class Product:
         return render(request, "Products/Search_Category.html")
     def selectCat(self,request):
         main_categories=self.category.fetchAll(request)
-        print(1)
         # sub_categories=[]
         # leaf_categories=[]
         #
@@ -132,6 +151,8 @@ class Product:
         #     for k in j:
         #         leaf=self.category.fetchChild(request,"/" + i["name"] + "/" + k["name"])
         #         leaf_categories.append([k["name"],leaf])
+
+
 
         self.context['maincats']=main_categories
 
