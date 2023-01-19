@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3a7640e6-de76-46e0-ab66-b76b957a1143" name="Changes" comment="category done">
-      <change afterPath="$PROJECT_DIR$/check2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/e_bazar_fyp/AdminApp/templatetags/html_func.py" afterDir="false" />
+    <list default="true" id="3a7640e6-de76-46e0-ab66-b76b957a1143" name="Changes" comment="vendor registration , new databses of it's own create. Now admin can verify and status is updating">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/check.py" beforeDir="false" afterPath="$PROJECT_DIR$/check.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/check2.py" beforeDir="false" afterPath="$PROJECT_DIR$/check2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/AdminApp/Templates/Verification/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/e_bazar_fyp/AdminApp/Templates/Verification/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/e_bazar_fyp/AdminApp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/e_bazar_fyp/AdminApp/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/AdminApp/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/e_bazar_fyp/AdminApp/utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/e_bazar_fyp/AdminApp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/e_bazar_fyp/AdminApp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/Vendor/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/e_bazar_fyp/Vendor/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/Vendor/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/e_bazar_fyp/Vendor/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/e_bazar_fyp/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/e_bazar_fyp/e_bazar_fyp/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/e_bazar_fyp/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/e_bazar_fyp/e_bazar_fyp/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +17,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -38,15 +34,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/maaz_/Desktop/fyp-ebazar",
-    "settings.editor.selected.configurable": "project.propVCSSupport.Mappings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/maaz_/Desktop/fyp-ebazar&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.Mappings&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\maaz_\Desktop\fyp-ebazar\e_bazar_fyp\e_bazar_app" />
@@ -191,7 +187,21 @@
       <option name="project" value="LOCAL" />
       <updated>1673794726414</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="vendor registration , new databses of it's own create. Now admin can verify and status is updating">
+      <created>1673992317335</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1673992317335</updated>
+    </task>
+    <task id="LOCAL-00007" summary="vendor registration , new databses of it's own create. Now admin can verify and status is updating">
+      <created>1673992393728</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1673992393728</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -209,6 +219,7 @@
     <MESSAGE value="Mongo integrated and registration done" />
     <MESSAGE value="change app name to vendor" />
     <MESSAGE value="category done" />
-    <option name="LAST_COMMIT_MESSAGE" value="category done" />
+    <MESSAGE value="vendor registration , new databses of it's own create. Now admin can verify and status is updating" />
+    <option name="LAST_COMMIT_MESSAGE" value="vendor registration , new databses of it's own create. Now admin can verify and status is updating" />
   </component>
 </project>

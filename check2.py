@@ -29,9 +29,15 @@ database = client["E-Bazar"]
 # for k,v in dictionary.items():
 #     for key,value in v.items():
 #         print(value)
-status_collec = database['status']
-status_id = status_collec.find({'name': 'not verified'})
-for id in status_id:
-    status_id=id['_id']
-print(status_id)
+# status_collec = database['status']
+# status_id = status_collec.find({'name': 'not verified'})
+# for id in status_id:
+#     status_id=id['_id']
+# print(status_id)
+#
 
+vendor= database['Vendors']
+vendor= vendor.find({})
+for i in vendor:
+    i['age']=18
+    print(i)
