@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/Homepage.css' %}">
+    <meta charset="UTF-8">
+    <title>E-Bazar</title>
+</head>
+<body>
+<button>Sign-In</button>
+<br>
+<br>
+<h2>Products</h2>
+<br>
+<br>
+<div class="cards">
+    {% for product in products %}
+<div class="card">
+  <img src="jeans3.jpg" alt="Denim Jeans" style="width:100%">
+  <h1>{{product.name}}</h1>
+  <p class="price">Rs.{{product.Price}}</p>
+</div>
+    {% endfor %}
+</div>>
+</body>
+</html>

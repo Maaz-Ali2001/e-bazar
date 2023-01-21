@@ -8,7 +8,17 @@ from pprint import pprint
 connection_string= "mongodb+srv://fypecommerce:maazali786@cluster0.ycmix0k.mongodb.net/test"
 client = MongoClient(connection_string)
 # print(client.list_database_names())
-database = client["E-Bazar"]
+database_list = client.list_database_names()
+all_products=[]
+for i in database_list:
+    if "vendor" in i:
+        database=client[i]
+        collection=database["Products"]
+        products=collection.find({})
+        for j in products:
+            all_products.append(j['_id'])
+print(all_products)
+
 # dbConnection= database["vendor1"]
 # vendors= dbConnection.find({})
 # for i in vendors:
@@ -35,9 +45,9 @@ database = client["E-Bazar"]
 #     status_id=id['_id']
 # print(status_id)
 #
-
-vendor= database['Vendors']
-vendor= vendor.find({})
-for i in vendor:
-    i['age']=18
-    print(i)
+#
+# vendor= database['Vendors']
+# vendor= vendor.find({})
+# for i in vendor:
+#     i['age']=18
+#     print(i)

@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3a7640e6-de76-46e0-ab66-b76b957a1143" name="Changes" comment="vendor registration , new databses of it's own create. Now admin can verify and status is updating">
+    <list default="true" id="3a7640e6-de76-46e0-ab66-b76b957a1143" name="Changes" comment="Add_product">
+      <change beforePath="$PROJECT_DIR$/.idea/fyp-ebazar.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/fyp-ebazar.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/check2.py" beforeDir="false" afterPath="$PROJECT_DIR$/check2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/AdminApp/Templates/Verification/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/e_bazar_fyp/AdminApp/Templates/Verification/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/AdminApp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/e_bazar_fyp/AdminApp/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/AdminApp/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/e_bazar_fyp/AdminApp/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/AdminApp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/e_bazar_fyp/AdminApp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/Vendor/Templates/Products/Add_Products.html" beforeDir="false" afterPath="$PROJECT_DIR$/e_bazar_fyp/Vendor/Templates/Products/Add_Products.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/e_bazar_fyp/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/e_bazar_fyp/e_bazar_fyp/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/e_bazar_fyp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/e_bazar_fyp/e_bazar_fyp/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
