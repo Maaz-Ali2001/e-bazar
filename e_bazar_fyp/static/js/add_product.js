@@ -62,6 +62,13 @@ function show_var(){
     document.getElementById("varquantityl").style.display="block";
     document.getElementById("varquantity").style.display="block";
     document.getElementById("vars").style.display="block";
+    document.getElementById("iscolor").style.display="block";
+    document.getElementById("iscolorl").style.display="block";
+    document.getElementById("issize").style.display="block";
+    document.getElementById("issizel").style.display="block";
+    document.getElementById("isvolume").style.display="block";
+    document.getElementById("isvolumel").style.display="block";
+    document.getElementById("addvar").style.display="block";
 
 }
 function Enableb2b(ObjChkId)
@@ -81,6 +88,7 @@ function Enableb2b(ObjChkId)
             document.getElementById("b2boffpril2").style.display="block";
             document.getElementById("b2boffpri2").style.display="block";
             document.getElementById("b2binfo").style.display="block";
+
             }
         else{
             document.getElementById("b2boffamol").style.display="none";
@@ -96,9 +104,59 @@ function Enableb2b(ObjChkId)
             document.getElementById("b2boffpril2").style.display="none";
             document.getElementById("b2boffpri2").style.display="none";
             document.getElementById("b2binfo").style.display="none";
+            document.getElementById("iscolor").style.display="none";
+            document.getElementById("iscolorl").style.display="none";
+            document.getElementById("issize").style.display="none";
+            document.getElementById("issizel").style.display="none";
+            document.getElementById("isvolume").style.display="none";
+            document.getElementById("isvolumel").style.display="none";
             }
     }
+function Enablevar(checkid,labelid){
+    if(document.getElementById(checkid).checked){
+           document.getElementById(labelid).style.display="block";
+            }
+        else{
+            document.getElementById(labelid).style.display="none";
+            }
+}
 
+//function addvariation(){
+//    const ipts=[
+//    document.getElementById('varsku'),
+//    document.getElementById('varproductid'),
+//    document.getElementById('varidtype'),
+//    document.getElementById('varcondition'),
+//    document.getElementById('varprice'),
+//    document.getElementById('varquantity'),
+//    ]
+//    const color=document.getElementById('iscolorl'),
+//    constdocument.getElementById('issizel'),
+//    document.getElementById('isvolumel')
+//    const check1 = document.getElementById('iscolor');
+//    const check2 = document.getElementById('issize');
+//    const check3 = document.getElementById('isvolume');
+//    for (item of ipts){
+//        const opt1 = document.createElement("input");
+//        opt1.id = item.id + "o";
+//        opt1.type="text";
+//        opt1.value=item.value;
+//        if (check1.checked){
+//
+//        }
+//    }
+//
+//
+//
+//
+//
+//    if (check1.checked){
+//
+//
+//
+//    }
+//
+//}
 
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("default").click();

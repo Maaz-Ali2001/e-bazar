@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3a7640e6-de76-46e0-ab66-b76b957a1143" name="Changes" comment="change app name to vendor">
+    <list default="true" id="3a7640e6-de76-46e0-ab66-b76b957a1143" name="Changes" comment="Add_product">
+      <change beforePath="$PROJECT_DIR$/.idea/fyp-ebazar.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/fyp-ebazar.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/check2.py" beforeDir="false" afterPath="$PROJECT_DIR$/check2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/e_bazar_fyp/Vendor/Templates/Products/Add_Products.html" beforeDir="false" afterPath="$PROJECT_DIR$/e_bazar_fyp/Vendor/Templates/Products/Add_Products.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/Vendor/Templates/Products/Search_Category_1.html" beforeDir="false" afterPath="$PROJECT_DIR$/e_bazar_fyp/Vendor/Templates/Products/Search_Category_1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/Vendor/Templates/Products/Search_Category_2.html" beforeDir="false" afterPath="$PROJECT_DIR$/e_bazar_fyp/Vendor/Templates/Products/Search_Category_2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/Vendor/Templates/Products/Search_Category_3.html" beforeDir="false" afterPath="$PROJECT_DIR$/e_bazar_fyp/Vendor/Templates/Products/Search_Category_3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/Vendor/static/E-Bazar/simple.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/Vendor/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/e_bazar_fyp/Vendor/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/Vendor/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/e_bazar_fyp/Vendor/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/e_bazar_fyp/e_bazar_fyp/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/e_bazar_fyp/e_bazar_fyp/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e_bazar_fyp/e_bazar_fyp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/e_bazar_fyp/e_bazar_fyp/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +19,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -38,9 +37,10 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/maaz_/Desktop/fyp/E_Bazar&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/maaz_/Desktop/fyp-ebazar&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.Mappings&quot;
   }
 }</component>
@@ -49,9 +49,100 @@
       <recent name="C:\Users\maaz_\Desktop\fyp-ebazar\e_bazar_fyp\e_bazar_app" />
       <recent name="C:\Users\maaz_\Desktop\fyp-ebazar\e_bazar_fyp\e_bazar_app\Templates\Vendor_registration" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\saim rao\Desktop\FYP E-BAZAR\POC\e-bazar-saim\e_bazar_fyp\static" />
-    </key>
+  </component>
+  <component name="RunManager" selected="Python.check2">
+    <configuration name="__init__" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="fyp-ebazar" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/e_bazar_fyp/e_bazar_fyp" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/e_bazar_fyp/e_bazar_fyp/__init__.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="check" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="fyp-ebazar" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/check.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="check2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="fyp-ebazar" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/check2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="views" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="fyp-ebazar" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/e_bazar_fyp/Vendor" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/e_bazar_fyp/Vendor/views.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.check2" />
+        <item itemvalue="Python.views" />
+        <item itemvalue="Python.__init__" />
+        <item itemvalue="Python.check" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -83,14 +174,35 @@
       <option name="project" value="LOCAL" />
       <updated>1673773176958</updated>
     </task>
-    <task id="LOCAL-00004" summary="iiiii">
-      <created>1674034758934</created>
+    <task id="LOCAL-00004" summary="category done">
+      <created>1673794702413</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1674034758934</updated>
+      <updated>1673794702413</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="category done">
+      <created>1673794726414</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1673794726414</updated>
+    </task>
+    <task id="LOCAL-00006" summary="vendor registration , new databses of it's own create. Now admin can verify and status is updating">
+      <created>1673992317335</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1673992317335</updated>
+    </task>
+    <task id="LOCAL-00007" summary="vendor registration , new databses of it's own create. Now admin can verify and status is updating">
+      <created>1673992393728</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1673992393728</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -107,6 +219,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Mongo integrated and registration done" />
     <MESSAGE value="change app name to vendor" />
-    <option name="LAST_COMMIT_MESSAGE" value="change app name to vendor" />
+    <MESSAGE value="category done" />
+    <MESSAGE value="vendor registration , new databses of it's own create. Now admin can verify and status is updating" />
+    <option name="LAST_COMMIT_MESSAGE" value="vendor registration , new databses of it's own create. Now admin can verify and status is updating" />
   </component>
 </project>

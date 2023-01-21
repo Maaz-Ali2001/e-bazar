@@ -1,8 +1,10 @@
 from django.urls import path
 
-from . import views
+from .views import Verification
 
+obj= Verification()
 urlpatterns = [
-    # path('', views.home, name='home'),
+    path('', obj.home, name='home'),
+    path('statuschange/<str:status_type>', obj.status_change, name='status_change'),
     # path('verify',views.verify,name="verify")
 ]
