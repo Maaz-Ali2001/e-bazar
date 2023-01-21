@@ -287,7 +287,8 @@ class Product:
                 'B2B offer': product_b2b,
                 'Image': product_images,
                 'Description': product_description,
-                'Caution warning': product_warning
+                'Caution warning': product_warning,
+                'Base product': 'null'
 
             }
             if skuCheckCount == 0:

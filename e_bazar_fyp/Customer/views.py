@@ -10,7 +10,7 @@ class Customer:
         all_products=[]
         for i in database_list:
             con=utils.connect_database(i,'Products')
-            products=con.find({})
+            products=con.find({'Base product': 'null'})
             for j in products:
                 all_products.append(j)
         context={

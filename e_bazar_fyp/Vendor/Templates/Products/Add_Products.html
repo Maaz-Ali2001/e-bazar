@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
-      <link rel="stylesheet" href="{% static 'css/add_product.css' %}">
+  <link rel="stylesheet" href="{% static 'css/add_product.css' %}">
 
     <meta charset="UTF-8">
     <title>Add Product</title>
@@ -13,7 +13,6 @@
 <br>
 <h2>Category</h2>
 <p>{{category}}</p>
-<p>{{error_message}}</p>
 <br><br>
 <button  class="tablink" onclick="openPage('Product_identity', this, 'white', 'inside')" id="default">Product indentity</button>
 <button id="b2" class="tablink" onclick="openPage('information', this, 'white', 'inside')" >information</button>
@@ -25,10 +24,16 @@
 
 
 <div id="Product_identity" class="tabcontent">
-  <form action="{% url 'insertpro' %}" method="post">
+  <form action="{% url 'register' %}" method="post">
     {% csrf_token %}
     <fieldset>
-        <br>
+      <p>Variations</p>
+      <input type="radio" id="True" name="variation" value="True">
+      <label for="True">Yes</label>
+      <br>
+      <input type="radio" id="False" name="variation" value="False">
+      <label for="True">No</label>
+      <br><br>
        <label for="manufacturer">Manufacturer:</label>&nbsp;&nbsp;&nbsp;
 
       <input type="text" id="manufacturer" name="manufacturer">
@@ -62,10 +67,10 @@
   <fieldset>
       <p>Expirable:</p>
       <input type="radio" id="exptrue" name="exp" value="True">
-      <label for="exptrue">Yes</label>
+      <label for="True">Yes</label>
       <br>
       <input type="radio" id="expfalse" name="exp" value="False        ">
-      <label for="expfalse">No</label>
+      <label for="True">No</label>
       <br><br>
 
 
@@ -82,42 +87,27 @@
         <br><br>
       <label for="unitcounttype">Unit count type:</label>&nbsp;
       <input type="text" id="unitcounttype" name="unitcounttype">
-       <br><br>
-      <label for="price">Price:</label>&nbsp;
-      <input type="text" id="price" name="price" placeholder="PKR">
-       <br><br>
-      <p>Dimensions</p>
-      <br><br>
-      <label for="length">Length:</label>&nbsp;
-      <input type="text" id="length" name="length" placeholder="inches">
-      <br><br>
-      <label for="width">Width:</label>&nbsp;
-      <input type="text" id="width" name="width" placeholder="inches">
-      <br><br>
-      <label for="height">Height:</label>&nbsp;
-      <input type="text" id="height" name="height" placeholder="inches">
-      <br><br>
-      <label for="weight">Weight:</label>&nbsp;
-      <input type="text" id="weight" name="weight" placeholder="Kgs">
     </fieldset>
 
 </div>
 
 <div id="Variations" class="tabcontent">
   <fieldset>
-    <input type="checkbox" id="isvariation" name="isvariation" value="1" onclick="show_var()">
+    <input type="checkbox" id="isvariation" name="isvariation" value="1" onclick="EnableTextbox('isvariation','variation','true')">
 
       <label for="isvariation">Variations</label>
       <br><br>
-<!--      <label for="variation">Variation type:</label>-->
-<!--      <select name="variation" id="variation" onchange="show(this.value);">-->
-<!--          <option selected disabled hidden>&#45;&#45;&#45;&#45;select&#45;&#45;&#45;&#45;</option>-->
-<!--      <option value="size">size</option>-->
-<!--      <option value="color">color</option>-->
-<!--      <option value="volume">volume</option>-->
-<!--      </select><br><br>-->
+      <label for="variation">Variation type:</label>
+      <select name="variation" id="variation" onchange="show(this.value);">
+          <option selected disabled hidden>----select----</option>
+      <option value="size">size</option>
+      <option value="color">color</option>
+      <option value="volume">volume</option>
+      </select><br><br>
+      <label id="varid" for="vartype"></label>
+      <input type="text" id="vartype" name="vartype" hidden>
       <br><br>
-      <p id="vars" hidden> Variant </p>
+      <p id="vars" hidden> For Variation </p>
       <br><br>
       <label  id="varskul" for="varsku" hidden>SKU:</label>&emsp;&emsp;
       <input type="text" id="varsku" name="varsku" hidden>
@@ -143,30 +133,6 @@
 
       <input type="text" id="varquantity" name="varquantity" hidden>
         <br><br>
-      <p id="vars2" hidden> Add variations </p>
-      <br><br>
-<!--      Variations checkboxes-->
-      <input type="checkbox" id="iscolor" name="iscolor" value="1" onclick="Enablevar('iscolor','color')" hidden>
-
-      <label  id="iscolorl" for="iscolor" hidden>Color</label>
-      <br><br>
-
-      <input type="text" id="color" name="color" hidden>
-      <br><br>
-      <input type="checkbox" id="issize" name="issize" value="1" onclick="Enablevar('issize','size')" hidden>
-
-      <label id="issizel" for="issize" hidden>Size</label>
-
-      <br><br>
-      <input type="text" id="size" name="size" hidden>
-      <br><br>
-      <input type="checkbox" id="isvolume" name="isvolume" value="1" onclick="Enablevar('isvolume','volume')" hidden>
-
-      <label id="isvolumel" for="isvolume" hidden>Volume</label>
-       <br><br>
-      <input type="text" id="volume" name="volume" hidden>
-
-
 
     </fieldset>
 </div>
@@ -175,13 +141,13 @@
  <fieldset>
       <p>Offer:</p>
       <input type="radio" id="sellerf" name="offer" value="Seller fulfilled">
-      <label for="sellerf">Seller fulfilled</label>
+      <label for="True">Seller fulfilled</label>
       <br>
       <input type="radio" id="Ebf" name="offer" value="E-bazar fulfilled">
-      <label for="Ebf">E-bazar fulfilled</label>
+      <label for="True">E-bazar fulfilled</label>
       <br><br>
      <input type="checkbox" id="isb2b" name="isb2b" value="1" onclick="Enableb2b('isb2b')">
-      <label for="isb2b">Business offer</label>
+      <label for="isbrand">Business offer</label>
      <br><br>
      <p id="b2binfo" hidden>Maximum 3 batches allowed<p>
      <br><br>
@@ -238,7 +204,7 @@
       <p>Upload your product images</p>
       <label for="descrip">Description:</label>
       <br>
-      <textarea id="descrip"  name="descrip" class="longInput" cols="100" rows="10"></textarea>
+      <textarea id="descrip" class="longInput" cols="100" rows="10"></textarea>
       <br><br>
       <label for="caution">Caution warnings:</label>
       <input type="text" id="caution" name="caution" style="width:600px;">
@@ -250,4 +216,4 @@
 
 <script type="text/javascript" src="{% static 'js/add_product.js' %}"></script>
 </body>
-<button id="addvar" hidden >Add variation</button>
+<button id="addvar" hidden onclick="show_var()">Add variation</button>
