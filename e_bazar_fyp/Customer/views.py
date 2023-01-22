@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from . import utils
 from bson.objectid import ObjectId
 from django.http import HttpResponse
@@ -26,6 +26,7 @@ class Customer:
 
 
     def productdetail(self,request,product_id):
+        print("ïn add products")
         database_list = utils.getAllVendors()
         variation = None
         variation_values={}
@@ -47,72 +48,81 @@ class Customer:
                             variation_values[var]=j[var]
 
 
-        print(variation)
+
         context = {'Product_details': product,
                    'Variations': variation,
                    'Caution': 'Note: ' + product["Caution_warning"],
                    'var_values': variation_values,
                    'range': range(1,int(product["Quantity"])+1)}
-        print(variation_values)
+
         return render(request,'Homepage/product_detail.html',context)
 
-    def productVarDetail(self,request,id):
-        database_list = utils.getAllVendors()
-        variations_list = []
-        variation_values={}
-        for i in database_list:
-            con = utils.connect_database(i, 'Products')
-            products = con.find({'_id': ObjectId(id)})
-            for k in products:
-                k['id'] = k.pop('_id')
-                product=k
-                variation_values['Color']=k['Color']
-                variation_values['Size'] = k['Size']
-
-        print(variation_values)
-        context = {'Product_details': product,
-                   'Variations': variations_list,
-                   'Caution': 'Note: ' + product["Caution_warning"],
-                   'var_values': variation_values}
-        print(variation_values)
-        return render(request,'Homepage/product_detail.html',context)
-
-
-    def add_to_cart(self,request):
-
-        print(request.POST['addtocart'])
-        if request.method=='POST':
+    def add_to_cart(self, request):
+        print("in add to cart")
+        if request.method == 'POST':
             try:
-                cart_list=request.COOKIES.get('cart')
-                print('iam',cart_list)
+                string_cart = request.COOKIES.get('cart')
+                string_cart = string_cart[2:-2]
+                string_cart = string_cart.split('],[')
+                cart_list = []
+                for item in string_cart:
+                    item = item.replace("'", "")
+                    item = item.split(",")
+                    cart_list.append(item)
+                print(cart_list)
             except:
-                cart_list=[]
+                cart_list = []
 
             if cart_list is None:
-                cart_list=[]
+                cart_list = []
 
+            flag = False
             productid = request.POST['addtocart']
-            cart_list.append(productid)
-            context= {'cart_list':cart_list}
-            rend= render(request,'Homepage/cart.html',context)
-            rend.set_cookie('cart',cart_list)
+            for item in cart_list:
+                if productid == item[0]:
+                    untis = int(item[1])
+                    untis += 1
+                    item[1] = untis
+                    flag = True
+            if flag == False:
+                cart_list.append([productid, 1])
+
+            context = {'cart_list': cart_list}
+            # rend= render(request,'Homepage/cart.html',context)
+            rend = redirect('productdetail',product_id=productid)
+            rend.set_cookie('cart', cart_list)
             return rend
         else:
-            try:
-                value = request.COOKIES.get('cart')
-                print('1')
-            except:
-                value = request.COOKIES['cart']
-            if value== None:
-                value='No items in cart'
-            return HttpResponse(value)
+            cart_list = []
+            string_cart = request.COOKIES.get('cart')
+            if string_cart == None:
+                cart_list = 'No items in cart'
+                return render(request, 'Homepage/cart.html', {'empty': cart_list})
+            else:
+                string_cart = string_cart[2:-2]
+                string_cart = string_cart.split('],[')
+                for item in string_cart:
+                    item = item.replace("'", "")
+                    item = item.split(",")
+                    cart_list.append(item)
+                cart_contextlist = []
+                databaseName = 'vendor23423525252'
+                con = utils.connect_database(databaseName, 'Products')
+                for product in cart_list:
+                    productid = ObjectId(product[0])
+                    product_attributes = con.find({'_id': productid})
+                    for i in product_attributes:
+                        product_attributes = i
+                    product_attributes['units'] = product[1]
+                    price = int(product_attributes['Price'])
+                    sub_total = int(product_attributes['units']) * price
+                    product_attributes['subtotal'] = sub_total
+                    cart_contextlist.append(product_attributes)
+                print(cart_contextlist)
+
+                return render(request, 'Homepage/cart.html', {'Products': cart_contextlist})
 
 
-
-
-        return HttpResponse(productid)
-
-        return render(request,'cart.html')
 
 
 
