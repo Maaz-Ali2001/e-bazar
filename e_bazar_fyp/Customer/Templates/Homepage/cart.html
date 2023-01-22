@@ -22,17 +22,9 @@
     <label>Units buyed: </label><label>{{product.units}}</label><br><br>
     <label>Per unit price: </label><label>{{product.Price}}</label><br><br>
     <label>Sub total: </label><label>{{product.subtotal}}</label><br><br>
-
     </fieldset>
 </form>
 {% endfor %}
-  <label>Total amount: </label><label>{{total_amount}}</label><br><br>
-
-    <form action="{% url 'order' %}">
-        <button type="submit" > Order</button>
-    </form>
-
 {% endif %}
-
 </body>
 </html>
