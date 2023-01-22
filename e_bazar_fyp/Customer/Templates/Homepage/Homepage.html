@@ -15,7 +15,7 @@
 <br>
 <div class="cards">
     {% for product in products %}
-<div class="card">
+<div class="card" onclick="location.href='{% url 'productdetail' product.id %}'">
   <img src="jeans3.jpg" alt="Denim Jeans" style="width:100%">
   <h1>{{product.name}}</h1>
   <p class="price">Rs.{{product.Price}}</p>
