@@ -6,8 +6,25 @@ import json
 
 
 
-#connection_string= "mongodb+srv://fypecommerce:maazali786@cluster0.ycmix0k.mongodb.net/test"
-#client = MongoClient(connection_string)
+connection_string= "mongodb+srv://fypecommerce:maazali786@cluster0.ycmix0k.mongodb.net/test"
+client = MongoClient(connection_string)
+databaseName = 'E-Bazar'
+database= client[databaseName]
+database= database['Orders']
+order={
+    'products':[{'product_id':'none','units':5},{'product_id':'none','units':5}],'total':1433
+}
+order['products'].append({'profession':'software'})
+database.insert_one(order)
+
+# database= database['Vendors']
+# find= database.find({'email':'ain@gmail.com'})
+# if len(find)==0:
+#     print(True)
+
+dict= {'maaz':[{'age':18},{'school':'bahria'}]}
+dict['maaz'].append({'profession':'software'})
+print(dict)
 # print(client.list_database_names())
 # database_list = client.list_database_names()
 # all_products=[]
@@ -34,11 +51,7 @@ import json
 # for i in cart_lst:
 #     print(i)
 
-lst=[['maaz',18],['ahmed',13]]
-for i in lst:
-    if i[0]=='maaz':
-        i[1]+=1
-print(lst)
+
 
     #item= i[]
 #     cart_list = i.strip('[]')

@@ -14,6 +14,15 @@
 <br>
 <br>
 <br>
+
+<h1 style="  padding: 60px;
+  text-align: center;
+  background: #1abc9c;
+  color: white;
+  font-size: 30px;">
+    {{status_type}} vendors
+</h1>
+<div>
 <form action='{% url "home" %}'>
       <button style=" background-color: #04AA6D;
   border: none;
@@ -23,16 +32,7 @@
   margin: 4px 2px;
   cursor: pointer;"  type="submit">
          Back to home </button>
-    </form>
-<h1 style="  padding: 60px;
-  text-align: center;
-  background: #1abc9c;
-  color: white;
-  font-size: 30px;">
-    {{status_type}} vendors
-</h1>
-<div>
-
+    </form><br> <br>
   <div>
               <form action='{% url "status_change" status_type%}' method="POST">
                         {% block content %}
