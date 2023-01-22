@@ -50,6 +50,7 @@ class Customer:
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         context = {'Product_details': product,
                    'Variations': variation,
@@ -57,6 +58,8 @@ class Customer:
                    'var_values': variation_values,
                    'range': range(1,int(product["Quantity"])+1)}
 =======
+=======
+>>>>>>> parent of dc9a9c5 (cart done)
 =======
 >>>>>>> parent of dc9a9c5 (cart done)
     def add_to_cart(self,request):
@@ -73,7 +76,13 @@ class Customer:
                 print(cart_list)
             except:
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+                cart_list=[]
+
+            if cart_list is None:
+>>>>>>> parent of dc9a9c5 (cart done)
                 cart_list=[]
 
             if cart_list is None:
@@ -118,11 +127,14 @@ class Customer:
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             context = {'cart_list': cart_list}
             # rend= render(request,'Homepage/cart.html',context)
             rend = redirect('productdetail',product_id=productid)
             rend.set_cookie('cart', cart_list)
 =======
+=======
+>>>>>>> parent of dc9a9c5 (cart done)
 =======
 >>>>>>> parent of dc9a9c5 (cart done)
 
@@ -131,6 +143,9 @@ class Customer:
             rend= redirect('productdetail')
             rend.set_cookie('cart',cart_list)
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of dc9a9c5 (cart done)
+=======
 >>>>>>> parent of dc9a9c5 (cart done)
 =======
 >>>>>>> parent of dc9a9c5 (cart done)
@@ -150,8 +165,11 @@ class Customer:
                     cart_list.append(item)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 cart_contextlist = []
 =======
+=======
+>>>>>>> parent of dc9a9c5 (cart done)
 =======
 >>>>>>> parent of dc9a9c5 (cart done)
                 cart_contextlist=[]
@@ -187,5 +205,9 @@ class Customer:
                 return render(request,'Homepage/cart.html',{'Products':cart_contextlist})
 
 # Create your views here.
+<<<<<<< HEAD
+>>>>>>> parent of dc9a9c5 (cart done)
+=======
+
 >>>>>>> parent of dc9a9c5 (cart done)
 
