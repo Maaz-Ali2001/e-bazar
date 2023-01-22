@@ -92,7 +92,6 @@ class vendorRegister:
                 }
                 print(vendor_info)
                 print(vendor_login)
-                #db_genvendor.insert_one()
                 db_genvendor.insert_one(vendor_login)
                 db_info.insert_one(vendor_info)
 
