@@ -2,171 +2,203 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
-      <link rel="stylesheet" href="{% static 'css/add_product.css' %}">
+  <link rel="stylesheet" href="{% static 'css/add_product.css' %}">
 
     <meta charset="UTF-8">
+    meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Add Product</title>
 </head>
 
 <body>
-<h1>E-Bazar Seller central</h1>
+<h1 style="  padding: 60px;
+  text-align: center;
+  background: #1abc9c;
+  color: white;
+  font-size: 30px;">E-Bazar Seller central</h1>
 <br>
-<h2>Category</h2>
-<p>{{category}}</p>
-<p>{{error_message}}</p>
+<h2 style="  padding: 60px;
+  text-align: center;
+  background: #1abc9c;
+  color: white;
+  font-size: 30px;">Category</h2>
+<p style="color: black;font-weight:500;font-size:40px">{{category}}</p>
 <br><br>
-<button  class="tablink" onclick="openPage('Product_identity', this, 'white', 'inside')" id="default">Product indentity</button>
-<button id="b2" class="tablink" onclick="openPage('information', this, 'white', 'inside')" >information</button>
-<button  id="b3" class="tablink" onclick="openPage('Variations', this, 'white', 'inside')">variations</button>
-<button id="b4" class="tablink" onclick="openPage('Offer', this, 'white', 'inside')">offer</button>
-<button id="b5" class="tablink" onclick="openPage('Images', this, 'white', 'inside')">images</button>
-<button id="b6" class="tablink" onclick="openPage('Description', this, 'white', 'inside')">description</button>
+<button style=" background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;"  class="tablink" onclick="openPage('Product_identity', this, 'white', 'inside')" id="default">Product indentity</button>
+<button style=" background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;" id="b2" class="tablink" onclick="openPage('information', this, 'white', 'inside')" >information</button>
+<button style=" background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;" id="b3" class="tablink" onclick="openPage('Variations', this, 'white', 'inside')">variations</button>
+<button style=" background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;" id="b4" class="tablink" onclick="openPage('Offer', this, 'white', 'inside')">offer</button>
+<button style=" background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;" id="b5" class="tablink" onclick="openPage('Images', this, 'white', 'inside')">images</button>
+<button style=" background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;" id="b6" class="tablink" onclick="openPage('Description', this, 'white', 'inside')">description</button>
 <br><br>
 
 
 <div id="Product_identity" class="tabcontent">
-  <form action="{% url 'insertpro' %}" method="post">
+  <form action="{% url 'register' %}" method="post">
     {% csrf_token %}
     <fieldset>
-        <br>
-       <label for="manufacturer">Manufacturer:</label>&nbsp;&nbsp;&nbsp;
-
-      <input type="text" id="manufacturer" name="manufacturer">
+      <p style="color: black;font-weight:500;font-size:30px">Variations</p>
+      <input style="border: 2px solid black;
+  border-radius: 4px;"  type="radio" id="True" name="variation" value="True">
+      <label style="color: black;font-weight:500;font-size:30px" for="True">Yes</label>
+      <br>
+      <input style="border: 2px solid black;
+  border-radius: 4px;"  type="radio" id="False" name="variation" value="False">
+      <label style="color: black;font-weight:500;font-size:30px" for="True">No</label>
       <br><br>
-       <label for="productid">Product ID:</label>&nbsp;&nbsp;&emsp;
+       <label style="color: black;font-weight:500;font-size:30px" for="manufacturer">Manufacturer:</label>&nbsp;&nbsp;&nbsp;
 
-      <input type="text" id="productid" name="productid">
+      <input style="border: 2px solid black;
+  border-radius: 4px;"  type="text" id="manufacturer" name="manufacturer">
+      <br><br>
+       <label style="color: black;font-weight:500;font-size:30px" for="productid">Product ID:</label>&nbsp;&nbsp;&emsp;
+
+      <input style="border: 2px solid black;
+  border-radius: 4px;"  type="text" id="productid" name="productid">
       <select name="idtype" id="idtype">
       <option value="upc">UPC</option>
       <option value="gtin">GTIN</option>
       <option value="aen">AEN</option>
       </select>
       <br><br>
-      <label for="SKU">Product SKU:</label>&nbsp;&nbsp;
+      <label style="color: black;font-weight:500;font-size:30px" for="SKU">Product SKU:</label>&nbsp;&nbsp;
 
-      <input type="text" id="SKU" name="SKU">
+      <input style="border: 2px solid black;
+  border-radius: 4px;"  type="text" id="SKU" name="SKU">
       <br><br>
-        <label for="productname">Prodct name:</label>&nbsp;&nbsp;&nbsp;
+        <label style="color: black;font-weight:500;font-size:30px" for="productname">Prodct name:</label>&nbsp;&nbsp;&nbsp;
 
-      <input type="text" id="productname" name="productname">
+      <input style="border: 2px solid black;
+  border-radius: 4px;"  type="text" id="productname" name="productname">
       <br><br>
-      <label for="brand">Brand name:</label>&emsp;&nbsp;
-      <input type="text" id="brand" name="brand">
+      <label style="color: black;font-weight:500;font-size:30px" for="brand">Brand name:</label>&emsp;&nbsp;
+      <input style="border: 2px solid black;
+  border-radius: 4px;"  type="text" id="brand" name="brand">
       <br><br>
-      &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="checkbox" id="isbrand" name="isbrand" value="1" onclick="EnableTextbox('isbrand','brand','false')">
-      <label for="isbrand">No brand name</label>
+      &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input style="border: 2px solid black;
+  border-radius: 4px;"  type="checkbox" id="isbrand" name="isbrand" value="1" onclick="EnableTextbox('isbrand','brand','false')">
+      <label style="color: black;font-weight:500;font-size:30px" for="isbrand">No brand name</label>
     </fieldset>
 </div>
 
 <div id="information" class="tabcontent">
   <fieldset>
-      <p>Expirable:</p>
-      <input type="radio" id="exptrue" name="exp" value="True">
-      <label for="exptrue">Yes</label>
+      <p style="color: black;font-weight:500;font-size:30px">Expirable:</p>
+      <input style="border: 2px solid black;
+  border-radius: 4px;"  type="radio" id="exptrue" name="exp" value="True">
+      <label style="color: black;font-weight:500;font-size:30px" for="True">Yes</label>
       <br>
-      <input type="radio" id="expfalse" name="exp" value="False        ">
-      <label for="expfalse">No</label>
+      <input style="border: 2px solid black;
+  border-radius: 4px;"  type="radio" id="expfalse" name="exp" value="False        ">
+      <label style="color: black;font-weight:500;font-size:30px" for="True">No</label>
       <br><br>
 
 
-      <label for="unitcount">Unit count:</label>&emsp;&emsp;
-      <input type="text" id="unitcount" name="unitcount">
+      <label style="color: black;font-weight:500;font-size:30px" for="unitcount">Unit count:</label>&emsp;&emsp;
+      <input style="border: 2px solid black;
+  border-radius: 4px;"  type="text" id="unitcount" name="unitcount">
       <br><br>
-      <label for="condition">Product condition:</label>&nbsp;&nbsp;
+      <label style="color: black;font-weight:500;font-size:30px" for="condition">Product condition:</label>&nbsp;&nbsp;
 
-      <input type="text" id="condition" name="condition">
+      <input style="border: 2px solid black;
+  border-radius: 4px;"  type="text" id="condition" name="condition">
         <br><br>
-        <label for="quantity">Quantity:</label>&nbsp;&nbsp;
+        <label style="color: black;font-weight:500;font-size:30px" for="quantity">Quantity:</label>&nbsp;&nbsp;
 
-      <input type="text" id="quantity" name="quantity">
+      <input style="border: 2px solid black;
+  border-radius: 4px;"  type="text" id="quantity" name="quantity">
         <br><br>
-      <label for="unitcounttype">Unit count type:</label>&nbsp;
-      <input type="text" id="unitcounttype" name="unitcounttype">
-       <br><br>
-      <label for="price">Price:</label>&nbsp;
-      <input type="text" id="price" name="price" placeholder="PKR">
-       <br><br>
-      <p>Dimensions</p>
-      <br><br>
-      <label for="length">Length:</label>&nbsp;
-      <input type="text" id="length" name="length" placeholder="inches">
-      <br><br>
-      <label for="width">Width:</label>&nbsp;
-      <input type="text" id="width" name="width" placeholder="inches">
-      <br><br>
-      <label for="height">Height:</label>&nbsp;
-      <input type="text" id="height" name="height" placeholder="inches">
-      <br><br>
-      <label for="weight">Weight:</label>&nbsp;
-      <input type="text" id="weight" name="weight" placeholder="Kgs">
+      <label style="color: black;font-weight:500;font-size:30px" for="unitcounttype">Unit count type:</label>&nbsp;
+      <input style="border: 2px solid black;
+  border-radius: 4px;"  type="text" id="unitcounttype" name="unitcounttype">
     </fieldset>
 
 </div>
 
 <div id="Variations" class="tabcontent">
   <fieldset>
-    <input type="checkbox" id="isvariation" name="isvariation" value="1" onclick="show_var()">
+    <input style="border: 2px solid black;
+  border-radius: 4px;"  type="checkbox" id="isvariation" name="isvariation" value="1" onclick="EnableTextbox('isvariation','variation','true')">
 
-      <label for="isvariation">Variations</label>
+      <label style="color: black;font-weight:500;font-size:30px" for="isvariation">Variations</label>
       <br><br>
-<!--      <label for="variation">Variation type:</label>-->
-<!--      <select name="variation" id="variation" onchange="show(this.value);">-->
-<!--          <option selected disabled hidden>&#45;&#45;&#45;&#45;select&#45;&#45;&#45;&#45;</option>-->
-<!--      <option value="size">size</option>-->
-<!--      <option value="color">color</option>-->
-<!--      <option value="volume">volume</option>-->
-<!--      </select><br><br>-->
+      <label style="color: black;font-weight:500;font-size:30px" for="variation">Variation type:</label>
+      <select name="variation" id="variation" onchange="show(this.value);">
+          <option selected disabled hidden>----select----</option>
+      <option value="size">size</option>
+      <option value="color">color</option>
+      <option value="volume">volume</option>
+      </select><br><br>
+      <label style="color: black;font-weight:500;font-size:30px" id="varid" for="vartype"></label>
+      <input style="border: 2px solid black;
+  border-radius: 4px;"  type="text" id="vartype" name="vartype" hidden>
       <br><br>
-      <p id="vars" hidden> Variant </p>
+      <p style="color: black;font-weight:500;font-size:30px" id="vars" hidden> For Variation </p>
       <br><br>
-      <label  id="varskul" for="varsku" hidden>SKU:</label>&emsp;&emsp;
-      <input type="text" id="varsku" name="varsku" hidden>
+      <label style="color: black;font-weight:500;font-size:30px"  id="varskul" for="varsku" hidden>SKU:</label>&emsp;&emsp;
+      <input style="border: 2px solid black;
+  border-radius: 4px;"  type="text" id="varsku" name="varsku" hidden>
       <br><br>
-      <label id="varproductidl" for="varproductid" hidden>Product ID:</label>&nbsp;&nbsp;&emsp;
+      <label style="color: black;font-weight:500;font-size:30px" id="varproductidl" for="varproductid" hidden>Product ID:</label>&nbsp;&nbsp;&emsp;
 
-      <input type="text" id="varproductid" name="varproductid" hidden>
+      <input style="border: 2px solid black;
+  border-radius: 4px;"  type="text" id="varproductid" name="varproductid" hidden>
       <select name="varidtype" id="varidtype" hidden>
       <option value="upc">UPC</option>
       <option value="gtin">GTIN</option>
           <option value="aen">AEN</option>
       </select>
       <br><br>
-    <label id="varconditionl" for="varcondition" hidden>Product condition:</label>&nbsp;&nbsp;
+    <label style="color: black;font-weight:500;font-size:30px" id="varconditionl" for="varcondition" hidden>Product condition:</label>&nbsp;&nbsp;
 
-      <input type="text" id="varcondition" name="varcondition" hidden>
+      <input style="border: 2px solid black;
+  border-radius: 4px;"  type="text" id="varcondition" name="varcondition" hidden>
         <br><br>
-       <label id="varpricel" for="varprice" hidden>Price:</label>&nbsp;&nbsp;
+       <label style="color: black;font-weight:500;font-size:30px" id="varpricel" for="varprice" hidden>Price:</label>&nbsp;&nbsp;
 
-      <input type="text" id="varprice" name="varprice" hidden>
+      <input style="border: 2px solid black;
+  border-radius: 4px;"  type="text" id="varprice" name="varprice" hidden>
         <br><br>
-       <label id="varquantityl" for="varquantity" hidden>Quantity:</label>&nbsp;&nbsp;
+       <label style="color: black;font-weight:500;font-size:30px" id="varquantityl" for="varquantity" hidden>Quantity:</label>&nbsp;&nbsp;
 
-      <input type="text" id="varquantity" name="varquantity" hidden>
+      <input style="border: 2px solid black;
+  border-radius: 4px;"  type="text" id="varquantity" name="varquantity" hidden>
         <br><br>
-      <p id="vars2" hidden> Add variations </p>
-      <br><br>
-<!--      Variations checkboxes-->
-      <input type="checkbox" id="iscolor" name="iscolor" value="1" onclick="Enablevar('iscolor','color')" hidden>
-
-      <label  id="iscolorl" for="iscolor" hidden>Color</label>
-      <br><br>
-
-      <input type="text" id="color" name="color" hidden>
-      <br><br>
-      <input type="checkbox" id="issize" name="issize" value="1" onclick="Enablevar('issize','size')" hidden>
-
-      <label id="issizel" for="issize" hidden>Size</label>
-
-      <br><br>
-      <input type="text" id="size" name="size" hidden>
-      <br><br>
-      <input type="checkbox" id="isvolume" name="isvolume" value="1" onclick="Enablevar('isvolume','volume')" hidden>
-
-      <label id="isvolumel" for="isvolume" hidden>Volume</label>
-       <br><br>
-      <input type="text" id="volume" name="volume" hidden>
-
-
 
     </fieldset>
 </div>
@@ -174,43 +206,52 @@
 <div id="Offer" class="tabcontent">
  <fieldset>
       <p>Offer:</p>
-      <input type="radio" id="sellerf" name="offer" value="Seller fulfilled">
-      <label for="sellerf">Seller fulfilled</label>
+      <input style="border: 2px solid black;
+  border-radius: 4px;"  type="radio" id="sellerf" name="offer" value="Seller fulfilled">
+      <label style="color: black;font-weight:500;font-size:30px" for="True">Seller fulfilled</label>
       <br>
-      <input type="radio" id="Ebf" name="offer" value="E-bazar fulfilled">
-      <label for="Ebf">E-bazar fulfilled</label>
+      <input style="border: 2px solid black;
+  border-radius: 4px;"  type="radio" id="Ebf" name="offer" value="E-bazar fulfilled">
+      <label style="color: black;font-weight:500;font-size:30px" for="True">E-bazar fulfilled</label>
       <br><br>
-     <input type="checkbox" id="isb2b" name="isb2b" value="1" onclick="Enableb2b('isb2b')">
-      <label for="isb2b">Business offer</label>
+     <input style="border: 2px solid black;
+  border-radius: 4px;"  type="checkbox" id="isb2b" name="isb2b" value="1" onclick="Enableb2b('isb2b')">
+      <label style="color: black;font-weight:500;font-size:30px" for="isbrand">Business offer</label>
      <br><br>
      <p id="b2binfo" hidden>Maximum 3 batches allowed<p>
      <br><br>
 
-     <label id="b2boffamol" for="b2boffamo" hidden>Amount in batch(range):</label>&nbsp;&nbsp;
+     <label style="color: black;font-weight:500;font-size:30px" id="b2boffamol" for="b2boffamo" hidden>Amount in batch(range):</label>&nbsp;&nbsp;
         <br>
-      <input type="text" id="b2boffamo" name="b2boffamo" hidden>
+      <input style="border: 2px solid black;
+  border-radius: 4px;"  type="text" id="b2boffamo" name="b2boffamo" hidden>
      <br>
-     <label id="b2boffpril" for="b2boffpri" hidden>Price per item:</label>&nbsp;&nbsp;
+     <label style="color: black;font-weight:500;font-size:30px" id="b2boffpril" for="b2boffpri" hidden>Price per item:</label>&nbsp;&nbsp;
         <br>
-      <input type="text" id="b2boffpri" name="b2boffpri" hidden >
+      <input style="border: 2px solid black;
+  border-radius: 4px;"  type="text" id="b2boffpri" name="b2boffpri" hidden >
         <br><br>
 
-     <label id="b2boffamol1" for="b2boffamo1" hidden>Amount in batch(range):</label>&nbsp;&nbsp;
+     <label style="color: black;font-weight:500;font-size:30px" id="b2boffamol1" for="b2boffamo1" hidden>Amount in batch(range):</label>&nbsp;&nbsp;
         <br>
-      <input type="text" id="b2boffamo1" name="b2boffamo1" hidden>
+      <input style="border: 2px solid black;
+  border-radius: 4px;"  type="text" id="b2boffamo1" name="b2boffamo1" hidden>
      <br>
-     <label id="b2boffpril1" for="b2boffpri1" hidden>Price per item:</label>&nbsp;&nbsp;
+     <label style="color: black;font-weight:500;font-size:30px" id="b2boffpril1" for="b2boffpri1" hidden>Price per item:</label>&nbsp;&nbsp;
         <br>
-      <input type="text" id="b2boffpri1" name="b2boffpri1" hidden>
+      <input style="border: 2px solid black;
+  border-radius: 4px;"  type="text" id="b2boffpri1" name="b2boffpri1" hidden>
         <br><br>
 
-     <label id="b2boffamol2" for="b2boffamo2" hidden>Amount in batch(range):</label>&nbsp;&nbsp;
+     <label style="color: black;font-weight:500;font-size:30px" id="b2boffamol2" for="b2boffamo2" hidden>Amount in batch(range):</label>&nbsp;&nbsp;
         <br>
-      <input type="text" id="b2boffamo2" name="b2boffamo2" hidden>
+      <input style="border: 2px solid black;
+  border-radius: 4px;"  type="text" id="b2boffamo2" name="b2boffamo2" hidden>
      <br>
-     <label id="b2boffpril2" for="b2boffpri2" hidden>Price per item:</label>&nbsp;&nbsp;
+     <label style="color: black;font-weight:500;font-size:30px" id="b2boffpril2" for="b2boffpri2" hidden>Price per item:</label>&nbsp;&nbsp;
         <br>
-      <input type="text" id="b2boffpri2" name="b2boffpri2" hidden>
+      <input style="border: 2px solid black;
+  border-radius: 4px;" type="text" id="b2boffpri2" name="b2boffpri2" hidden>
 
 
 
@@ -219,35 +260,52 @@
 
 <div id="Images" class="tabcontent">
   <fieldset>
-      <p>Upload your product images</p>
-      <label for="img1">Select images:</label>
+      <p style="color: black;font-weight:500;font-size:30px">Upload your product images</p>
+      <label style="color: black;font-weight:500;font-size:30px" for="img1">Select images:</label>
       <br><br>
-        <input type="file" id="img1" name="img1" accept="image/*">
+        <input style="border: 2px solid black;
+  border-radius: 4px;"  type="file" id="img1" name="img1" accept="image/*">
       &emsp;
-      <input type="file" id="img2" name="img2" accept="image/*">
+      <input style="border: 2px solid black;
+  border-radius: 4px;"  type="file" id="img2" name="img2" accept="image/*">
       &emsp;
-      <input type="file" id="img3" name="img3" accept="image/*">
+      <input style="border: 2px solid black;
+  border-radius: 4px;"  type="file" id="img3" name="img3" accept="image/*">
       &emsp;
-      <input type="file" id="img4" name="img4" accept="image/*">
+      <input style="border: 2px solid black;
+  border-radius: 4px;"  type="file" id="img4" name="img4" accept="image/*">
     </fieldset>
 
 </div>
 
 <div id="Description" class="tabcontent">
   <fieldset>
-      <p>Upload your product images</p>
-      <label for="descrip">Description:</label>
+      <p style="color: black;font-weight:500;font-size:30px">Upload your product images</p>
+      <label style="color: black;font-weight:500;font-size:30px" for="descrip">Description:</label>
       <br>
-      <textarea id="descrip"  name="descrip" class="longInput" cols="100" rows="10"></textarea>
+      <textarea id="descrip" class="longInput" cols="100" rows="10"></textarea>
       <br><br>
-      <label for="caution">Caution warnings:</label>
-      <input type="text" id="caution" name="caution" style="width:600px;">
+      <label style="color: black;font-weight:500;font-size:30px" for="caution">Caution warnings:</label>
+      <input style="border: 2px solid black;
+  border-radius: 4px;"  type="text" id="caution" name="caution" style="width:600px;">
     </fieldset>
-    <button type="submit ">Finish</button>
+    <button style=" background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;" type="submit ">Finish</button>
     </form>
 
 </div>
 
 <script type="text/javascript" src="{% static 'js/add_product.js' %}"></script>
 </body>
-<button id="addvar" hidden >Add variation</button>
+<button  style=" background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;" id="addvar" hidden onclick="show_var()">Add variation</button>

@@ -8,5 +8,3 @@ e_bazar_fyp/Vendor/__pycache__/
 e_bazar_fyp/AdminApp/__pycache__/
 e_bazar_fyp/Customer/__pycache__/
 e_bazar_fyp/Customer/migrations/__pycache__/
-e_bazar_fyp/Customer/urls.py
-e_bazar_fyp/Customer/views.py
