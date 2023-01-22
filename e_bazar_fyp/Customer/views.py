@@ -49,6 +49,7 @@ class Customer:
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         context = {'Product_details': product,
                    'Variations': variation,
@@ -56,6 +57,8 @@ class Customer:
                    'var_values': variation_values,
                    'range': range(1,int(product["Quantity"])+1)}
 =======
+=======
+>>>>>>> parent of dc9a9c5 (cart done)
     def add_to_cart(self,request):
         if request.method=='POST':
             try:
@@ -69,6 +72,12 @@ class Customer:
                     cart_list.append(item)
                 print(cart_list)
             except:
+<<<<<<< HEAD
+=======
+                cart_list=[]
+
+            if cart_list is None:
+>>>>>>> parent of dc9a9c5 (cart done)
                 cart_list=[]
 
             if cart_list is None:
@@ -108,16 +117,22 @@ class Customer:
                 cart_list.append([productid, 1])
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             context = {'cart_list': cart_list}
             # rend= render(request,'Homepage/cart.html',context)
             rend = redirect('productdetail',product_id=productid)
             rend.set_cookie('cart', cart_list)
 =======
+=======
+>>>>>>> parent of dc9a9c5 (cart done)
 
             context= {'cart_list':cart_list}
             #rend= render(request,'Homepage/cart.html',context)
             rend= redirect('productdetail')
             rend.set_cookie('cart',cart_list)
+<<<<<<< HEAD
+>>>>>>> parent of dc9a9c5 (cart done)
+=======
 >>>>>>> parent of dc9a9c5 (cart done)
             return rend
         else:
@@ -134,8 +149,11 @@ class Customer:
                     item = item.split(",")
                     cart_list.append(item)
 <<<<<<< HEAD
+<<<<<<< HEAD
                 cart_contextlist = []
 =======
+=======
+>>>>>>> parent of dc9a9c5 (cart done)
                 cart_contextlist=[]
 >>>>>>> parent of dc9a9c5 (cart done)
                 databaseName = 'vendor23423525252'
@@ -170,5 +188,4 @@ class Customer:
 
 # Create your views here.
 >>>>>>> parent of dc9a9c5 (cart done)
-
 
