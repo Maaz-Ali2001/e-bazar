@@ -48,12 +48,32 @@ class Customer:
                             variation_values[var]=j[var]
 
 
+<<<<<<< HEAD
 
         context = {'Product_details': product,
                    'Variations': variation,
                    'Caution': 'Note: ' + product["Caution_warning"],
                    'var_values': variation_values,
                    'range': range(1,int(product["Quantity"])+1)}
+=======
+    def add_to_cart(self,request):
+        if request.method=='POST':
+            try:
+                string_cart=request.COOKIES.get('cart')
+                string_cart = string_cart[2:-2]
+                string_cart = string_cart.split('],[')
+                cart_list = []
+                for item in string_cart:
+                    item = item.replace("'", "")
+                    item = item.split(",")
+                    cart_list.append(item)
+                print(cart_list)
+            except:
+                cart_list=[]
+
+            if cart_list is None:
+                cart_list=[]
+>>>>>>> parent of dc9a9c5 (cart done)
 
         return render(request,'Homepage/product_detail.html',context)
 
@@ -87,10 +107,18 @@ class Customer:
             if flag == False:
                 cart_list.append([productid, 1])
 
+<<<<<<< HEAD
             context = {'cart_list': cart_list}
             # rend= render(request,'Homepage/cart.html',context)
             rend = redirect('productdetail',product_id=productid)
             rend.set_cookie('cart', cart_list)
+=======
+
+            context= {'cart_list':cart_list}
+            #rend= render(request,'Homepage/cart.html',context)
+            rend= redirect('productdetail')
+            rend.set_cookie('cart',cart_list)
+>>>>>>> parent of dc9a9c5 (cart done)
             return rend
         else:
             cart_list = []
@@ -105,13 +133,18 @@ class Customer:
                     item = item.replace("'", "")
                     item = item.split(",")
                     cart_list.append(item)
+<<<<<<< HEAD
                 cart_contextlist = []
+=======
+                cart_contextlist=[]
+>>>>>>> parent of dc9a9c5 (cart done)
                 databaseName = 'vendor23423525252'
                 con = utils.connect_database(databaseName, 'Products')
                 for product in cart_list:
                     productid = ObjectId(product[0])
                     product_attributes = con.find({'_id': productid})
                     for i in product_attributes:
+<<<<<<< HEAD
                         product_attributes = i
                     product_attributes['units'] = product[1]
                     price = int(product_attributes['Price'])
@@ -124,6 +157,18 @@ class Customer:
 
 
 
+=======
+                        product_attributes=i
+                    product_attributes['units']=product[1]
+                    price= int(product_attributes['Price'])
+                    sub_total= int(product_attributes['units'])*price
+                    product_attributes['subtotal']=sub_total
+                    cart_contextlist.append(product_attributes)
+                print(cart_contextlist)
 
+                return render(request,'Homepage/cart.html',{'Products':cart_contextlist})
+
+# Create your views here.
+>>>>>>> parent of dc9a9c5 (cart done)
 
 
