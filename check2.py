@@ -2,50 +2,27 @@ from pymongo import MongoClient
 from bson.objectid import ObjectId
 from django.conf import settings
 from pprint import pprint
-import json
 
 
 
-#connection_string= "mongodb+srv://fypecommerce:maazali786@cluster0.ycmix0k.mongodb.net/test"
-#client = MongoClient(connection_string)
+connection_string= "mongodb+srv://fypecommerce:maazali786@cluster0.ycmix0k.mongodb.net/test"
+client = MongoClient(connection_string)
 # print(client.list_database_names())
-# database_list = client.list_database_names()
-# all_products=[]
-# for i in database_list:
-#     if "vendor" in i:
-#         database=client[i]
-#         collection=database["Products"]
-#         products=collection.find({})
-#         for j in products:
-#             print(j)
-#             all_products.append(j['_id'])
+database_list = client.list_database_names()
+all_products=[]
+for i in database_list:
+    if "vendor" in i:
+        database=client[i]
+        collection=database["Products"]
+        products=collection.find({"Base_product":'null'})
+        for j in products:
+            all_products.append(j['name'])
+print(all_products)
 #print(all_products)
+# ori_dict = {'key1': 1, 'key2': 2, 'key3': 3}
+# ori_dict['new']=ori_dict.pop('key1')
+# print(ori_dict)
 
-# string_cart= "[['fwef2','kgk','fufu'],['fwef2','kgk','fufu'],['fwef2','kgk','fufu']]"
-# string_cart= string_cart[2:-2]
-# string_cart= string_cart.split('],[')
-# cart_lst=[]
-# for item in string_cart:
-#     #print(item)
-#     item= item.replace("'","")
-#     item= item.split(",")
-#     cart_lst.append(item)
-# print(cart_lst)
-# for i in cart_lst:
-#     print(i)
-
-lst=[['maaz',18],['ahmed',13]]
-for i in lst:
-    if i[0]=='maaz':
-        i[1]+=1
-print(lst)
-
-    #item= i[]
-#     cart_list = i.strip('[]')
-#     cart_list = i.replace("'", "")
-#     cart_list = i.split(',')
-#     lst.append(cart_list)
-#print(stri)
 # dbConnection= database["vendor1"]
 # vendors= dbConnection.find({})
 # for i in vendors:
