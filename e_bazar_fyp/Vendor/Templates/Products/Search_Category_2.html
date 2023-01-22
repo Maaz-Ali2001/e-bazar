@@ -5,18 +5,36 @@
     <!-- CSS CUSTOM -->
   <link rel="stylesheet" href="{% static 'E-Bazar/simple.css' %}">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Select Category</title>
 </head>
 <body>
 <div class="div_class">
-<h1>
+<h1 style="  padding: 60px;
+  text-align: center;
+  background: #1abc9c;
+  color: white;
+  font-size: 30px;">
   Select a Product Caregory
 </h1>
 <div>
-    <label for="Category">Search Category</label><br>
-    <input type="text" id="Category" name="Category">
-  <button type="submit" class="registerbtn"> Search </button>
-     <button type="submit" class="registerbtn" onclick="location.href='{% url 'selectcategory' %}'"> Show All </button>
+    <label style="color: black;font-weight:500;font-size:30px" for="Category">Search Category</label><br><br>
+    <input style="border: 2px solid black;
+  border-radius: 4px;" type="text" id="Category" name="Category">
+  <button style=" background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;"  type="submit" class="registerbtn"> Search </button>
+     <button style=" background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;"   type="submit" class="registerbtn" onclick="location.href='{% url 'selectcategory' %}'"> Show All </button>
   </div>
     <br><br>
 
@@ -24,12 +42,18 @@
         {% for subcat in subcats %}
         <form action='{% url "leafcat" %}' method="POST">
              {% csrf_token %}
-      <button name="category" type="submit" value="{{subcat.category}}">{{subcat.name}}</button>
+      <button style=" background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;"   name="category" type="submit" value="{{subcat.category}}">{{subcat.name}}</button>
     </form>
         <br><br>
         {% endfor %}
     </div>
-    <p>2</p>
+
 
 </div>
 

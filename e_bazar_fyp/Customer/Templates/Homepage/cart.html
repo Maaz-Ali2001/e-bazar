@@ -5,6 +5,26 @@
     <title>Cart</title>
 </head>
 <body>
+{% if empty %}
+<h1>Your cart is empty</h1>
+{% else %}
+<form action='{% url "logIn" %}'>
+     {% csrf_token %}
+      <button type="submit">
+         Back to home </button>
+    </form>
 
+
+    {% for product in Products %}
+<form >
+    <fieldset>
+    <label>Name: </label><label>{{product.name}}</label><br><br>
+    <label>Units buyed: </label><label>{{product.units}}</label><br><br>
+    <label>Per unit price: </label><label>{{product.Price}}</label><br><br>
+    <label>Sub total: </label><label>{{product.subtotal}}</label><br><br>
+    </fieldset>
+</form>
+{% endfor %}
+{% endif %}
 </body>
 </html>

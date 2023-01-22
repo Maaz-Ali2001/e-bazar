@@ -6,6 +6,7 @@
   {% load static %}
   <link rel="stylesheet" href="{% static 'simple.css' %}">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Vendor register</title>
 </head>
 
@@ -14,10 +15,20 @@
 <br>
 <br>
 <form action='{% url "home" %}'>
-      <button type="submit">
+      <button style=" background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;"  type="submit">
          Back to home </button>
     </form>
-<h1>
+<h1 style="  padding: 60px;
+  text-align: center;
+  background: #1abc9c;
+  color: white;
+  font-size: 30px;">
     {{status_type}} vendors
 </h1>
 <div>
@@ -26,13 +37,19 @@
               <form action='{% url "status_change" status_type%}' method="POST">
                         {% block content %}
                         {% for key,value in vendors.items %}
-                      <label >Vendor</label><br><br>
+                      <label  style="color: black;font-weight:500;font-size:30px">Vendor</label><br><br>
              {% csrf_token %}
                   {% for stat in status_lst %}
                   {% load html_func %}
                   {% get_id value as vend_id %}
                   {% status_venid stat vend_id as dict %}
-      <button name="status" type="submit" value="{{dict}}" >{{stat}}</button>
+      <button style=" background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;"  name="status" type="submit" value="{{dict}}" >{{stat}}</button>
                   {% endfor %}
 
 

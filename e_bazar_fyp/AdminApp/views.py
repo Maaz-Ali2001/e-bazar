@@ -8,8 +8,6 @@ class Verification:
     def home(self,request):
         if request.method=='POST':
             status= request.POST['status']
-
-
             return render(request,'Verification/status_change.html',context={'status_home':status})
         else:
             database = utils.connect_database('E-Bazar')
@@ -20,8 +18,6 @@ class Verification:
                 status_lst.append(status['name'])
 
             return render(request, 'Verification/home.html', context={'status_home': status_lst})
-
-        #return render(request,"Verification/status_change.html",{"vendors":unverified,'status':status_lst})
 
     def status_change(self,request,status_type):
         if request.method=='POST':
