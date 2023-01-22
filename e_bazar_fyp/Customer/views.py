@@ -12,29 +12,75 @@ class Customer:
         all_products=[]
         for i in database_list:
             con=utils.connect_database(i,'Products')
-            products=con.find({'Base product': 'null'})
+            products=con.find({'Base_product': 'null'})
             for j in products:
+                j['id']=j.pop('_id')
                 all_products.append(j)
         context={
             'products':all_products
         }
         return render(request,"Homepage/Homepage.html",context)
+    # def renProductPage(self,request,product_id):
+    #
+    #     return render(request, 'product_detail.html',context)
 
 
-    def productdetail(self,request):
-        databaseName= 'vendor23423525252'
-        productid= ObjectId('63c9407c1307b571b56c8ed1')
-        con= utils.connect_database(databaseName,'Products')
-        product= con.find({'_id':productid})
-        for i in product:
-            product=i
+    def productdetail(self,request,product_id):
+        database_list = utils.getAllVendors()
+        variation = None
+        variation_values={}
+        for i in database_list:
+            con = utils.connect_database(i, 'Products')
+            products = con.find({'_id': ObjectId(product_id)})
+            for k in products:
+                k['id'] = k.pop('_id')
+                product=k
+            if product['Base_product']=='null':
+                if product['Variation'] == True:
+                    print('in')
 
-        del product['_id']
-        product['id']= productid
+                    variations = con.find({'Base_product': ObjectId(product_id)})
+                    for j in variations:
+                        j['id'] = j.pop('_id')
+                        variation = j
+                        for var in product['Variation_type']:
+                            variation_values[var]=j[var]
 
-        return render(request,'Homepage/product_detail.html',product)
+
+        print(variation)
+        context = {'Product_details': product,
+                   'Variations': variation,
+                   'Caution': 'Note: ' + product["Caution_warning"],
+                   'var_values': variation_values,
+                   'range': range(1,int(product["Quantity"])+1)}
+        print(variation_values)
+        return render(request,'Homepage/product_detail.html',context)
+
+    def productVarDetail(self,request,id):
+        database_list = utils.getAllVendors()
+        variations_list = []
+        variation_values={}
+        for i in database_list:
+            con = utils.connect_database(i, 'Products')
+            products = con.find({'_id': ObjectId(id)})
+            for k in products:
+                k['id'] = k.pop('_id')
+                product=k
+                variation_values['Color']=k['Color']
+                variation_values['Size'] = k['Size']
+
+        print(variation_values)
+        context = {'Product_details': product,
+                   'Variations': variations_list,
+                   'Caution': 'Note: ' + product["Caution_warning"],
+                   'var_values': variation_values}
+        print(variation_values)
+        return render(request,'Homepage/product_detail.html',context)
+
 
     def add_to_cart(self,request):
+
+        print(request.POST['addtocart'])
         if request.method=='POST':
             try:
                 cart_list=request.COOKIES.get('cart')
@@ -65,8 +111,9 @@ class Customer:
 
 
         return HttpResponse(productid)
+
         return render(request,'cart.html')
 
-# Create your views here.
+
 
 

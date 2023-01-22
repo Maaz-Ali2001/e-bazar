@@ -14,11 +14,14 @@ for i in database_list:
     if "vendor" in i:
         database=client[i]
         collection=database["Products"]
-        products=collection.find({})
+        products=collection.find({"Base_product":'null'})
         for j in products:
-            print(j)
-            all_products.append(j['_id'])
+            all_products.append(j['name'])
+print(all_products)
 #print(all_products)
+# ori_dict = {'key1': 1, 'key2': 2, 'key3': 3}
+# ori_dict['new']=ori_dict.pop('key1')
+# print(ori_dict)
 
 # dbConnection= database["vendor1"]
 # vendors= dbConnection.find({})

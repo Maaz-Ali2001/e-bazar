@@ -264,13 +264,13 @@ class Product:
                 'SKU': product_SKU,
                 'name': product_name,
                 'ID': product_id,
-                'ID type': product_id_type,
+                'ID_type': product_id_type,
                 'Manufacturer': manufacturer,
                 'Brand': product_brand,
                 'Category': self.product_category,
                 'Expirable': product_expire,
-                'Unit count': product_unitcount,
-                'Unit count type': product_unitcountype,
+                'Unit_count': product_unitcount,
+                'Unit_count_type': product_unitcountype,
                 'Condition': product_condition,
                 'Quantity': product_quantity,
                 'Price': product_price,
@@ -282,24 +282,33 @@ class Product:
                                },
                 'Variation': product_variation,
                 'Fulfillment': product_fulfillment,
-                'B2B offer': product_b2b,
+                'B2B_offer': product_b2b,
                 'Image': product_images,
                 'Description': product_description,
-                'Caution warning': product_warning,
-                'Base product': 'null'
+                'Caution_warning': product_warning,
+                'Base_product': 'null',
+                'Variation_type': []
 
             }
-            if skuCheckCount == 0:
+            if skuCheckCount == 0 and varskuCheckCount ==0:
                 if product_b2b == True:
-                    product['Batch 1'] = {'Batch range': batch_1_range,
-                            'Batch price': batch_1_price
+                    product['Batch_1'] = {'Batch_range': batch_1_range,
+                            'Batch_price': batch_1_price
                             }
-                    product['Batch 2'] = {'Batch range': batch_2_range,
-                            'Batch price': batch_2_price
+                    product['Batch_2'] = {'Batch_range': batch_2_range,
+                            'Batch_price': batch_2_price
                             }
-                    product['Batch 3'] = {'Batch range': batch_3_range,
-                            'Batch price': batch_3_price
+                    product['Batch_3'] = {'Batch_range': batch_3_range,
+                            'Batch_price': batch_3_price
                             }
+                if color == True:
+                    product['Variation_type'].append('Color')
+                if size == True:
+                    product['Variation_type'].append('Size')
+                if volume == True:
+                    product['Variation_type'].append('Volume')
+
+
 
 
                 _id = dbConnection.insert_one(product)
@@ -311,13 +320,13 @@ class Product:
                         'SKU': product_varsku,
                         'name': product_name,
                         'ID': product_varproductid,
-                        'ID type': product_varidtype,
+                        'ID_type': product_varidtype,
                         'Manufacturer': manufacturer,
                         'Brand': product_brand,
                         'Category': self.product_category,
                         'Expirable': product_expire,
-                        'Unit count': product_unitcount,
-                        'Unit count type': product_unitcountype,
+                        'Unit_count': product_unitcount,
+                        'Unit_count_type': product_unitcountype,
                         'Condition': product_varcondition,
                         'Quantity': product_varquantity,
                         'Price': product_varprice,
@@ -327,36 +336,40 @@ class Product:
                                        'height': product_height
 
                                        },
-                        'Base product': ObjectId(base_id),
+                        'Base_product': ObjectId(base_id),
                         'Fulfillment': product_fulfillment,
-                        'B2B offer': product_b2b,
+                        'B2B_offer': product_b2b,
                         'Image': product_images,
                         'Description': product_description,
-                        'Caution warning': product_warning
+                        'Caution_warning': product_warning
                     }
                     if color == True:
                         product_variation['Color'] = product_varcolor
+                        product['Variation_type'].append('Color')
                     if size == True:
                         product_variation['Size'] = product_varsize
+                        product['Variation_type'].append('Size')
                     if volume == True:
                         product_variation['volume'] = product_varvolume
+                        product['Variation_type'].append('Volume')
 
                     if product_b2b == True:
-                        product_variation['Batch 1'] = {'Batch range': batch_1_range,
-                                    'Batch price': batch_1_price
+                        product_variation['Batch_1'] = {'Batch_range': batch_1_range,
+                                    'Batch_price': batch_1_price
                                     }
-                        product_variation['Batch 2'] = {'Batch range': batch_2_range,
-                                    'Batch price': batch_2_price
+                        product_variation['Batch_2'] = {'Batch_range': batch_2_range,
+                                    'Batch_price': batch_2_price
                                     }
-                        product_variation['Batch 3'] = {'Batch range': batch_3_range,
-                                    'Batch price': batch_3_price
+                        product_variation['Batch_3'] = {'Batch_range': batch_3_range,
+                                    'Batch_price': batch_3_price
                                     }
                     dbConnection.insert_one(product_variation)
                 return render(request, 'Seller_Central/Dashbourd.html',{'product': product_name})
 
             else:
+                print(self.product_category)
                 return render(request, 'Products/Add_products.html', {
-                    'error_message': "SKU already exists !",
+                    'error_message': "SKU already exists !", "category" : self.product_category
                 })
 
 
