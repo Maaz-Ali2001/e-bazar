@@ -16,8 +16,9 @@ for i in database_list:
         collection=database["Products"]
         products=collection.find({})
         for j in products:
+            print(j)
             all_products.append(j['_id'])
-print(all_products)
+#print(all_products)
 
 # dbConnection= database["vendor1"]
 # vendors= dbConnection.find({})

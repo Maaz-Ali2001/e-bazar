@@ -86,10 +86,14 @@ WSGI_APPLICATION = 'e_bazar_fyp.wsgi.application'
 # }
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'default': {
+            'ENGINE': 'djongo',
+            'NAME': 'E-Bazar',
+            'ENFORCE_SCHEMA': False,
+            'CLIENT': {
+                'host': 'mongodb+srv://fypecommerce:maazali786@cluster0.ycmix0k.mongodb.net/test'
+            }
+        }
 }
 
 # Password validation

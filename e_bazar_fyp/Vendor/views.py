@@ -54,8 +54,6 @@ class vendorRegister:
             cardHolder = request.POST['cardHolder']
             billingAddress = request.POST['billingAddress']
 
-            emailpass= email+password
-            #vendor_databse_name = hashlib.sha256(emailpass.encode('utf-8')).hexdigest()
             vendor_databse_name= 'vendor'+str(cnic)
 
             database_genvendor= utils.connect_database("E-Bazar")
@@ -63,7 +61,7 @@ class vendorRegister:
             not_verified= db_status.find({"name":"not verified"})
             for i in not_verified:
                 not_verified= ObjectId(i["_id"])
-            db_genvendor= database_genvendor["vendor2"]
+            db_genvendor= database_genvendor["Vendors"]
             database_specvendor= utils.connect_database(vendor_databse_name)
             db_info = database_specvendor["Information"]
             db_products= database_specvendor["Products"]

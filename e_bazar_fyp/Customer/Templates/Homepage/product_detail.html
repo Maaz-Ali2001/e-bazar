@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'simple.css' %}">
+    <meta charset="UTF-8">
+    <title>Order detail</title>
+</head>
+
+<body>
+
+
+<br>
+<br>
+<br>
+<h1>
+ order detail
+</h1>
+<div>
+  <form action="{% url 'cart' %}" method="post">
+    {% csrf_token %}
+    <fieldset>
+      <legend>
+    <h2>
+
+  </h2>
+      </legend>
+
+    <div>
+    <label >{{name}}</label><br>
+  </div>
+
+    </fieldset>
+            {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+        <button  type="submit" value="{{id}}" name="addtocart" > Add to cart  </button><br><br>
+
+
+  </form>
+    <form action="{% url 'cart' %}">
+         <button type="submit" > view cart  </button>
+    </form>
+</div>
+</body>
+</html>
