@@ -12,7 +12,11 @@
 <body>
 
 
-<h1>
+<h1 style="  padding: 60px;
+  text-align: center;
+  background: #1abc9c;
+  color: white;
+  font-size: 30px;">
   View vendors
 </h1>
 <div>
@@ -21,8 +25,14 @@
     <fieldset>
     {% for status_type in status_home %}
 <form action="{% url 'status_change' status_type %}" >
-  <button type="submit" name="status" value="{{status_type}}">{{status_type}}</button>
-</form>
+  <button style=" background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 90px 210px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;" type="submit" name="status" value="{{status_type}}">{{status_type}}</button>
+</form><br><br>
 {% endfor %}
       </fieldset>
 </div>
