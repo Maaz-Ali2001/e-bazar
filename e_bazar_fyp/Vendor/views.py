@@ -29,7 +29,7 @@ class vendorRegister:
 
     def logIn(self,request):
 
-        return redirect("register")
+        return redirect("vendorregister")
 
     def register(self,request):
         if request.method == 'POST':
@@ -95,7 +95,7 @@ class vendorRegister:
                 db_genvendor.insert_one(vendor_login)
                 db_info.insert_one(vendor_info)
 
-                return redirect("register")
+                return redirect("vendorregister")
             else:
                 return render(request, 'Vendor_registration/Registration.html', {
                     'error_message': "Maybe you are already registered or entered incorrect information !",
