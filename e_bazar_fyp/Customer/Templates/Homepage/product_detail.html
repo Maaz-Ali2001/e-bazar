@@ -1,46 +1,78 @@
+{% load static %}
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-  {% load static %}
-  <link rel="stylesheet" href="{% static 'simple.css' %}">
     <meta charset="UTF-8">
-    <title>Order detail</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Product Details</title>
 </head>
-
 <body>
+    <div class="container" >
+        <div class="box">
+            <div class="images">
+                <div class="img-holder active">
+                    <img src="3.png">
+                </div>
+                <div class="img-holder">
+                    <img src="2.png">
+                </div>
+                <div class="img-holder">
+                    <img src="1.png">
+                </div>
+                <div class="img-holder">
+                    <img src="6.png">
+                </div>
+            </div>
+            <div class="basic-info">
+                <h1>{{Product_details.name}}</h1>
+                <div class="rate">
+                    <i class="filled fas fa-star"></i>
+                    <i class="filled fas fa-star"></i>
+                    <i class="filled fas fa-star"></i>
+                    <i class="filled fas fa-star"></i>
+                    <i class="filled fas fa-star"></i>
+                </div>
+                <span>Rs.{{Product_details.Price}}</span>
+                <div class="options">
+                    <button class="options">Buy It Now</button>
+                    <form action='{% url "cart" %}' method="POST">
+                        {% csrf_token %}
+                    <button class="options" type="submit" value="{{Product_details.id}}" name="addtocart">Add to Cart</button>
+                    <br>
+                    <br>
+                     <label for="quantity">Quantity:</label>
+                      <select name="quantity" id="quantity" >
+                          {% for q in range %}
+                            <option value="q">{{q}}</option>
+                          {% endfor %}
+                      </select><br><br>
+                    </form>
+                </div>
+            </div>
+            <div class="description">
+                <p>{{Product_details.Description}}</p>
+                <p>{{Caution}}</p>
+                {% for variation in var_values %}
+                    <p>{{variation}}</p>
+                    {% if forloop.counter == 1 %}
+                        <a href="{% url 'productvardetail' Variations.id %}">{{var_values.Color}}</a>
+                    {% endif %}
+                    {% if forloop.counter == 2 %}
+                        <a href="{% url 'productvardetail' Variations.id %}">{{var_values.Size}}</a>
+
+                    {% endif %}
+                    {% if forloop.counter == 3 %}
+                        <a href="{% url 'productvardetail' Variations.id %}">{{var_values.Volume}}</a>
+
+                    {% endif %}
 
 
-<br>
-<br>
-<br>
-<h1>
- order detail
-</h1>
-<div>
-  <form action="{% url 'cart' %}" method="post">
-    {% csrf_token %}
-    <fieldset>
-      <legend>
-    <h2>
+                {% endfor %}
+            </div>
 
-  </h2>
-      </legend>
-
-    <div>
-    <label >{{name}}</label><br>
-  </div>
-
-    </fieldset>
-            {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-        <button  type="submit" value="{{id}}" name="addtocart" > Add to cart  </button><br><br>
-
-
-  </form>
-    <form action="{% url 'cart' %}">
-         <button type="submit" > view cart  </button>
-    </form>
-</div>
+        </div>
+    </div>
 </body>
 </html>

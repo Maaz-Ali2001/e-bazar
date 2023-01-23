@@ -13,7 +13,7 @@ class Customer:
         all_products=[]
         for i in database_list:
             con=utils.connect_database(i,'Products')
-            products=con.find({'Base product': 'null'})
+            products=con.find({'Base_product': 'null'})
             for j in products:
                 all_products.append(j)
         context={
@@ -22,18 +22,35 @@ class Customer:
         return render(request,"Homepage/Homepage.html",context)
 
 
-    def productdetail(self,request):
-        databaseName= 'vendor23423525252'
-        productid= ObjectId('63c9407c1307b571b56c8ed1')
-        con= utils.connect_database(databaseName,'Products')
-        product= con.find({'_id':productid})
-        for i in product:
-            product=i
+    def productdetail(self,request,product_id):
+        print("ïn add products")
+        database_list = utils.getAllVendors()
+        variation = None
+        variation_values = {}
+        for i in database_list:
+            con = utils.connect_database(i, 'Products')
+            products = con.find({'_id': ObjectId(product_id)})
+            for k in products:
+                k['id'] = k.pop('_id')
+                product = k
+            if product['Base_product'] == 'null':
+                if product['Variation'] == True:
+                    print('in')
 
-        del product['_id']
-        product['id']= productid
+                    variations = con.find({'Base_product': ObjectId(product_id)})
+                    for j in variations:
+                        j['id'] = j.pop('_id')
+                        variation = j
+                        for var in product['Variation_type']:
+                            variation_values[var] = j[var]
 
-        return render(request,'Homepage/product_detail.html',product)
+        context = {'Product_details': product,
+                   'Variations': variation,
+                   'Caution': 'Note: ' + product["Caution_warning"],
+                   'var_values': variation_values,
+                   'range': range(1, int(product["Quantity"]) + 1)}
+
+        return render(request, 'Homepage/product_detail.html', context)
 
     def string_nested_list_to_list(self,string_cart):
         string_cart = string_cart[2:-2]
