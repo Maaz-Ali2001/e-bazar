@@ -29,7 +29,7 @@
   <h1>E bazar seller registration</h1>
 </div>
 <div align="left">
-  <form align="left" action="{% url 'register' %}" method="post">
+  <form align="left" action="{% url 'vendorregister' %}" method="post">
     {% csrf_token %}
     <fieldset>
       <legend>
@@ -37,25 +37,25 @@
       </legend>
   <div>
     <label style="color: black;font-weight:500;font-size:30px" for="businessType">Enter business type</label> &nbsp;
-    <input style="border: 2px solid black;
+    <input style="border: 2px solid black;font-size:30px;
   border-radius: 4px;" type="text" id="businessType" name="businessType"><br><br>
   </div>
 
     <div>
     <label style="color: black;font-weight:500;font-size:30px" for="firstName">First Name</label> &nbsp;
-    <input style="border: 2px solid black;
+    <input style="border: 2px solid black;font-size:30px;
   border-radius: 4px;" type="text" id="firstName" name="firstName"><br><br>
   </div>
 
       <div>
     <label style="color: black;font-weight:500;font-size:30px" for="middleName">Middle Name</label> &nbsp;
-    <input style="border: 2px solid black;
+    <input style="border: 2px solid black;font-size:30px;
   border-radius: 4px;" type="text" id="middleName" name="middleName"><br><br>
   </div>
 
       <div>
     <label style="color: black;font-weight:500;font-size:30px" for="lastName">Last Name</label> &nbsp;
-    <input style="border: 2px solid black;
+    <input style="border: 2px solid black;font-size:30px;
   border-radius: 4px;" type="text" id="lastName" name="lastName"><br><br>
   </div>
 
@@ -63,53 +63,53 @@
 
        <div>
     <label style="color: black;font-weight:500;font-size:30px" for="dto">Date of birth</label> &nbsp;
-    <input style="border: 2px solid black;
+    <input style="border: 2px solid black;font-size:30px;
   border-radius: 4px;" type="text" id="dto" name="dto"><br><br>
   </div>
 
 
        <div>
     <label style="color: black;font-weight:500;font-size:30px" for="city">City</label> &nbsp;
-    <input style="border: 2px solid black;
+    <input style="border: 2px solid black;font-size:30px;
   border-radius: 4px;" type="text" id="city" name="city"><br><br>
   </div>
 
 
       <div>
     <label style="color: black;font-weight:500;font-size:30px" for="province">Province</label>&nbsp;
-    <input style="border: 2px solid black;
+    <input style="border: 2px solid black;font-size:30px;
   border-radius: 4px;" type="text" id="province" name="province"><br><br>
   </div>
 
 
          <div>
     <label style="color: black;font-weight:500;font-size:30px" for="address1">Address line 1</label> &nbsp;
-    <input style="border: 2px solid black;
-  border-radius: 4px;" type="text" id="address1" name="province"><br><br>
+    <input style="border: 2px solid black;font-size:30px;
+  border-radius: 4px;" type="text" id="address1" name="address1"><br><br>
   </div>
 
             <div>
     <label  style="color: black;font-weight:500;font-size:30px" for="address2">Address line 2</label> &nbsp;
-    <input style="border: 2px solid black;
+    <input style="border: 2px solid black;font-size:30px;
   border-radius: 4px;" type="text" id="address2" name="address2"><br><br>
   </div>
 
          <div>
     <label  style="color: black;font-weight:500;font-size:30px" for="postalCode">Postal code</label> &nbsp;
-    <input style="border: 2px solid black;
+    <input style="border: 2px solid black;font-size:30px;
   border-radius: 4px;" type="text" id="postalCode" name="postalCode"><br><br>
   </div>
 
          <div>
     <label  style="color: black;font-weight:500;font-size:30px" for="cnic">Cnic no</label> &nbsp;
-    <input style="border: 2px solid black;
+    <input style="border: 2px solid black;font-size:30px;
   border-radius: 4px;" type="text" id="cnic" name="cnic"><br><br>
   </div>
 
 
          <div>
     <label style="color: black;font-weight:500;font-size:30px" for="phone">Phone no</label> &nbsp;
-    <input style="border: 2px solid black;
+    <input style="border: 2px solid black;font-size:30px;
   border-radius: 4px;" type="text" id="phone" name="phone"><br><br>
   </div>
 
@@ -117,40 +117,40 @@
 
     <div>
     <label style="color: black;font-weight:500;font-size:30px" for="email">Email</label> &nbsp;
-    <input style="border: 2px solid black;
+    <input style="border: 2px solid black;font-size:30px;
   border-radius: 4px;" type="text" id="email" name="email"><br><br>
   </div>
 
 
        <div>
     <label style="color: black;font-weight:500;font-size:30px" for="password">Password</label> &nbsp;
-    <input style="border: 2px solid black;
+    <input style="border: 2px solid black;font-size:30px;
   border-radius: 4px;" type="password" id="password" name="password"><br><br>
   </div>
 
      <div>
     <label style="color: black;font-weight:500;font-size:30px" for="rePassword">Re-type password</label> &nbsp;
-    <input style="border: 2px solid black;
+    <input style="border: 2px solid black;font-size:30px;
   border-radius: 4px;" type="password" id="rePassword" name="rePassword"><br><br>
   </div>
 
 
         <div>
     <label style="color: black;font-weight:500;font-size:30px" for="creditCard">Credit card number</label> &nbsp;
-    <input style="border: 2px solid black;
+    <input style="border: 2px solid black;font-size:30px;
   border-radius: 4px;" type="text" id="creditCard" name="creditCard"><br><br>
   </div>
 
 
             <div>
     <label style="color: black;font-weight:500;font-size:30px" for="cardHolder">Card Holder Name</label> &nbsp;
-    <input style="border: 2px solid black;
+    <input style="border: 2px solid black;font-size:30px;
   border-radius: 4px;" type="text" id="cardHolder" name="cardHolder"><br><br>
   </div>
 
             <div>
     <label style="color: black;font-weight:500;font-size:30px" for="billingAddress">Billing Address</label> &nbsp;
-    <input style="border: 2px solid black;
+    <input style="border: 2px solid black;font-size:30px;
   border-radius: 4px;" type="text" id="billingAddress" name="billingAddress"><br><br>
   </div>
 
