@@ -15,10 +15,12 @@ class Customer:
             con=utils.connect_database(i,'Products')
             products=con.find({'Base_product': 'null'})
             for j in products:
+                j['id'] = j.pop('_id')
                 all_products.append(j)
         context={
             'products':all_products
         }
+        print(context)
         return render(request,"Homepage/Homepage.html",context)
 
 
@@ -81,7 +83,7 @@ class Customer:
             if flag==False:
                 cart_list.append([productid,1])
 
-            rend= redirect('productdetail')
+            rend= redirect('productdetails',product_id=productid)
             rend.set_cookie('cart',cart_list,max_age=120)
             return rend
         else:
@@ -106,7 +108,7 @@ class Customer:
                     total_amount+=sub_total
                     product_attributes['subtotal']=sub_total
                     cart_contextlist.append(product_attributes)
-
+                    print(cart_contextlist)
                 return render(request,'Homepage/cart.html',{'Products':cart_contextlist,'total_amount':total_amount })
 
     def register(self,request):
@@ -179,7 +181,7 @@ class Customer:
 
                 order_database.insert_one(order_dict)
 
-                return render(request,'Homepage/Homepage.html')
+                return redirect('logIn')
 
 # Create your views here.
 

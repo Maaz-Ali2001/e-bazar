@@ -36,7 +36,7 @@
                 </div>
                 <span>Rs.{{Product_details.Price}}</span>
                 <div class="options">
-                    <button class="options">Buy It Now</button>
+                    <button class="options" onclick="location.href='{% url 'register' %}'">Buy It Now</button>
                     <form action='{% url "cart" %}' method="POST">
                         {% csrf_token %}
                     <button class="options" type="submit" value="{{Product_details.id}}" name="addtocart">Add to Cart</button>
